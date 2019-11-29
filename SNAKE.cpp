@@ -7,7 +7,7 @@
 #include "conio.h"
 #include "data.h"
 #include "time.h"
-
+#pragma comment(lib,"winmm.lib")
 using std::cout;
 using std::endl;
 #define  UP 0
@@ -15,7 +15,7 @@ using std::endl;
 #define  LEFT 2
 #define  RIGHT 3
 int Lenght = 3;
-int x = 30;
+int x = 30;  
 int y = 10;
 bool e = true;
 struct coordinate
@@ -36,6 +36,7 @@ void WriteChar(int x, int y )
 	//输出字符串
 	
 }
+//判断是否按下，并以无回显的方式获取一个按键
 char GetOper()
 {
 	if (_kbhit())
@@ -43,6 +44,15 @@ char GetOper()
 		return _getch();
 	}
 }
+//中文输入及其他设置
+void putSet() {
+	keybd_event(VK_SHIFT, 0, 0, 0);
+	Sleep(100);
+	keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, 0);
+	PlaySoundA("E:\\ruanjian\\daima\\vs\\C_preject\\procedure\\SNAKE\\Mermaid_MiyanoMamoru.wav", NULL, SND_ASYNC | SND_NODEFAULT);
+
+}
+//随机一个果实的位置；
 void food_coordinate() {
 	srand((unsigned)time(NULL));
 	int i = rand() % (2 + 56);
@@ -51,6 +61,7 @@ void food_coordinate() {
 	WriteChar(food.x, food.y);
 	printf("o");
 }
+//蛇的长度与坐标，蛇头位置单独拿出。方便方向定位
 void nSnoke_height() {
 	nSnoke_coord[0].x = x;
 	nSnoke_coord[0].y = y;
@@ -64,6 +75,7 @@ void nSnoke_height() {
 		cout << "*";
 	}
 }
+//背景30*60
 void backgroudFile() {
 	char nSpace[30][60] = { 0 };
 	for (int i = 0; i < 30; i++) {
@@ -114,7 +126,7 @@ int main()
 	char cOper = 0;
 	
 	int nDir = UP;
-	
+	putSet();
 	for (int i = 1; i < Lenght; i++)
 	{
 		nSnoke_coord[i].x = x+i;
@@ -122,16 +134,19 @@ int main()
 		//cout << "*";
 	}
 	system("CLS");
+	printf("\n");
 	backgroudFile();
+
+	system("pause");
 	hide();
-	while (e = true) {
+//	while (e = true) {
 		food_coordinate();
 		
 		Sleep(1000);
-		
+		food_coordinate();
 		
 		while (e = true) {
-			
+		
 			
 			nSnoke_height();
 			judge();
@@ -181,7 +196,7 @@ int main()
 			//nSnoke_coord[Lenght].y = y;
 		}
 		
-	}
+	
 	return 0;
 }
 
