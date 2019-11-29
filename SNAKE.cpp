@@ -7,16 +7,14 @@
 #include "conio.h"
 #include "data.h"
 #include "time.h"
-#pragma comment(lib,"winmm.lib")
+
 using std::cout;
 using std::endl;
-#define  UP 0
-#define  DOWN 1
-#define  LEFT 2
-#define  RIGHT 3
-int Lenght = 3;
-int x = 30;  
+
+int x = 30;
 int y = 10;
+int Lenght = 3;
+int score = 0;
 bool e = true;
 struct coordinate
 {
@@ -24,34 +22,7 @@ struct coordinate
 	int y = 0;
 };
 struct coordinate food;
-struct coordinate nSnoke_coord[1000];
-HANDLE hStd = GetStdHandle(STD_OUTPUT_HANDLE); 
-void WriteChar(int x, int y )
-{
-
-	//获取一个输出句柄
-	COORD stcPos = { x,y };
-	//设置控制台光标位置
-	SetConsoleCursorPosition(hStd, stcPos);
-	//输出字符串
-	
-}
-//判断是否按下，并以无回显的方式获取一个按键
-char GetOper()
-{
-	if (_kbhit())
-	{
-		return _getch();
-	}
-}
-//中文输入及其他设置
-void putSet() {
-	keybd_event(VK_SHIFT, 0, 0, 0);
-	Sleep(100);
-	keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, 0);
-	PlaySoundA("E:\\ruanjian\\daima\\vs\\C_preject\\procedure\\SNAKE\\Mermaid_MiyanoMamoru.wav", NULL, SND_ASYNC | SND_NODEFAULT);
-
-}
+struct coordinate nSnake_coord[1000];
 //随机一个果实的位置；
 void food_coordinate() {
 	srand((unsigned)time(NULL));
@@ -62,61 +33,41 @@ void food_coordinate() {
 	printf("o");
 }
 //蛇的长度与坐标，蛇头位置单独拿出。方便方向定位
-void nSnoke_height() {
-	nSnoke_coord[0].x = x;
-	nSnoke_coord[0].y = y;
-	WriteChar(nSnoke_coord[0].x, nSnoke_coord[0].y);
+void nSnake_height() {
+	nSnake_coord[0].x = x;
+	nSnake_coord[0].y = y;
+	WriteChar(nSnake_coord[0].x, nSnake_coord[0].y);
+	//WORD color : blue;
 	cout << "@";
 	for (int i = 1; i < Lenght; i++)
 	{
 
 		
-		WriteChar(nSnoke_coord[i].x, nSnoke_coord[i].y);
+		WriteChar(nSnake_coord[i].x, nSnake_coord[i].y);
 		cout << "*";
 	}
 }
-//背景30*60
-void backgroudFile() {
-	char nSpace[30][60] = { 0 };
-	for (int i = 0; i < 30; i++) {
-		for (int j = 0; j < 60; j++) {
-			nSpace[0][j] = '-';
-			nSpace[29][j] = '-';
-			nSpace[i][0] = '|';
-			nSpace[i][59] = '|';
-		}
-	}
-	for (int i = 0; i < 30; i++) {
-		for (int j = 0; j < 60; j++)
-		{
-			std::cout << nSpace[i][j];
-		}
-		printf("\n");
-	}
-}
-//隐藏光标 windows.h
-void hide()
-{
-	CONSOLE_CURSOR_INFO cursor_info = { 1,0 };
-	SetConsoleCursorInfo(hStd, &cursor_info);
-}
 
 #if 1
-void  judge() {
+int  judge() {
 	for (int i = 0,j=1; i < Lenght; i++) {
-		if ((nSnoke_coord[i].x == 0) || (nSnoke_coord[i].y == 0) || (nSnoke_coord[i].x == 60) || (nSnoke_coord[i].y == 30)) {
-			printf("game over\n");
-			printf("Your Failed\n");
-			e=false;
+		if ((nSnake_coord[i].x == 0) || (nSnake_coord[i].y == 0) || (nSnake_coord[i].x == 60) || (nSnake_coord[i].y == 30)) {
+			
+			e=false; 
+			system("CLS");
+			gameover();
+			return 1;
+
 		}
-		if ((nSnoke_coord[0].x == nSnoke_coord[j].x) && (nSnoke_coord[0].y == nSnoke_coord[j].y)) {
+		if ((nSnake_coord[0].x == nSnake_coord[j].x) && (nSnake_coord[0].y == nSnake_coord[j].y)) {
 			e = false;
 			j++;
-			printf("game over\n");
-			printf("Your Failed\n");
+			system("CLS");
+			gameover();
+			return 1;
 		}
 	}
-	;
+	return 0;
 }
 #endif
 int main()
@@ -124,33 +75,28 @@ int main()
 	int n = 0;
 	int nLive = 1;
 	char cOper = 0;
-	
 	int nDir = UP;
 	putSet();
 	for (int i = 1; i < Lenght; i++)
 	{
-		nSnoke_coord[i].x = x+i;
-		nSnoke_coord[i].y = y;
+		nSnake_coord[i].x = x+i;
+		nSnake_coord[i].y = y;
 		//cout << "*";
 	}
 	system("CLS");
-	printf("\n");
+	cout << score;
 	backgroudFile();
-
 	system("pause");
 	hide();
 //	while (e = true) {
-		food_coordinate();
-		
+		food_coordinate();	
 		Sleep(1000);
-		food_coordinate();
-		
-		while (e = true) {
-		
-			
-			nSnoke_height();
+		//food_coordinate();
+		while (e == true) {	
+			nSnake_height();
 			judge();
 			cOper = GetOper();
+			printf("%d", &score);
 			switch (cOper) {
 			case 'W':
 			case 'w': {
@@ -169,7 +115,7 @@ int main()
 				nDir = RIGHT;
 			}
 			}
-			WriteChar(nSnoke_coord[Lenght - 1].x, nSnoke_coord[Lenght - 1].y);
+			WriteChar(nSnake_coord[Lenght - 1].x, nSnake_coord[Lenght - 1].y);
 			cout << " ";
 			switch (nDir) {
 			case UP:    y--;       break;
@@ -177,26 +123,23 @@ int main()
 			case RIGHT: x++; break;
 			case LEFT:  x--; break;
 			}
-			if ((nSnoke_coord[0].x == food.x) && (nSnoke_coord[0].y == food.y)) {
+			if ((nSnake_coord[0].x == food.x) && (nSnake_coord[0].y == food.y)) {
 				Lenght += 1;
+				score += 10;
 				food_coordinate();
-				nSnoke_coord[Lenght - 1] = nSnoke_coord[Lenght - 2];
+				nSnake_coord[Lenght - 1] = nSnake_coord[Lenght - 2];
 			}
 			for (int i = Lenght - 1; i > 0; i--) {
-				nSnoke_coord[i] = nSnoke_coord[i - 1];
+				nSnake_coord[i] = nSnake_coord[i - 1];
 			}
-			
-			
 			//WriteChar(x, y);
 			//cout << "*";
-			
-			
 			Sleep(200);
-			//nSnoke_coord[Lenght].x = x;
-			//nSnoke_coord[Lenght].y = y;
+			//nSnake_coord[Lenght].x = x;
+			//nSnake_coord[Lenght].y = y;
 		}
 		
-	
+		system("pause");
 	return 0;
 }
 

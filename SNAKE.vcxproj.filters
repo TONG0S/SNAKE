@@ -38,5 +38,17 @@
     <ClCompile Include="food.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="setSnake.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="temp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Account_Password.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pageSnake.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

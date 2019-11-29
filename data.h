@@ -1,8 +1,22 @@
-//#pragma once
-//#define  UP 0
-//#define  DOWN 1
-//#define  LEFT 2
-//#define  RIGHT 3
+#pragma once
+#define  UP 0
+#define  DOWN 1
+#define  LEFT 2
+#define  RIGHT 3
+
+
+void putSet();
+
+void hide();
+void WriteChar(int x, int y);
+
+char GetOper();
+//Ò³Ãæ
+void backgroudFile();
+void index();
+void gamestart();
+void levelpage();
+void gameover();
 //extern char  nSpace[30][30];
 //extern void backgroudFile();
 //extern void WriteChar(int x, int y, const char* szbuf);
@@ -13,5 +27,5 @@
 //	int y = 0;
 //};
 //extern struct coordinate food;
-//extern struct coordinate nSnoke_coord[100];
+//extern struct coordinate nSnake_coord[100];
 // 

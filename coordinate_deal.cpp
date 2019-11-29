@@ -14,7 +14,7 @@ struct coordinate
 	int y = 0;
 };
 struct coordinate food;
-struct coordinate nSnoke_coord[1000];
+struct coordinate nSnake_coord[1000];
 void WriteChar(int x, int y, const char* szbuf)
 {
 

@@ -5,20 +5,62 @@
 #include "data.h"
 #if 0
 void backgroudFile() {
-	char nSpace[30][30] = { 0 };
+	char nSpace[30][60] = { 0 };
 	for (int i = 0; i < 30; i++) {
-		nSpace[0][i] = '-';
-		nSpace[29][i] = '-';
-		nSpace[i][0] = '|';
-		nSpace[i][29] = '|';
-
-	}
-		for (int i = 0; i < 30; i++) {
-			for (int j = 0; j < 30; j++)
-			{
-				std::cout << nSpace[i][j];
-			}
-			printf("\n");
+		for (int j = 0; j < 60; j++) {
+			nSpace[0][j] = 5;
+			nSpace[29][j] = 5;
+			nSpace[i][0] = 5;
+			nSpace[i][59] = 5;
 		}
 	}
+	for (int i = 7; i < 15; i++) {
+		nSpace[i][10] = 5;
+	}
+	for (int k = 15; k < 24; k++) {
+		nSpace[k][49] = 5;
+	}
+	for (int j = 10; j < 50; j++) {
+		nSpace[7][j] = 5;
+		nSpace[15][j] = 5;
+		nSpace[23][j] = 5;
+	}
+	
+	for (int i = 0; i < 30; i++) {
+		for (int j = 0; j < 60; j++)
+		{
+			std::cout << nSpace[i][j];
+			/*if (nSpace[i][j] == 5) {
+				std::cout << "#";
+			}*/
+				//
+			
+			//std::cout << " ";
+			
+		}
+		printf("\n");
+	}
+}
+#endif
+#if 1
+//±³¾°30*60
+void backgroudFile() {
+	char nSpace[30][60] = { 0 };
+	for (int i = 0; i < 30; i++) {
+		for (int j = 0; j < 60; j++) {
+			nSpace[0][j] = '-';
+			nSpace[29][j] = '-';
+			nSpace[i][0] = '|';
+			nSpace[i][59] = '|';
+		}
+	}
+	nSpace[15][30] = '#';
+	for (int i = 0; i < 30; i++) {
+		for (int j = 0; j < 60; j++)
+		{
+			std::cout << nSpace[i][j];
+		}
+		printf("\n");
+	}
+}
 #endif 
