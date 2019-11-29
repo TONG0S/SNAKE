@@ -24,15 +24,12 @@
     <ClInclude Include="coordinate_deal.cpp">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="fileInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="SNAKE.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="backgroudFile.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="food.cpp">
@@ -48,6 +45,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="pageSnake.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SnokeLeight.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dealFile.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

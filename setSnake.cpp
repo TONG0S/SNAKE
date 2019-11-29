@@ -3,6 +3,7 @@
 #include "conio.h"
 #include "data.h"
 #include "time.h"
+#include "fileInfo.h"
 #pragma comment(lib,"winmm.lib")
 HANDLE hStd = GetStdHandle(STD_OUTPUT_HANDLE);
 //中文输入及其他设置

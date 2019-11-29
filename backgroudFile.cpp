@@ -45,18 +45,20 @@ void backgroudFile() {
 #if 1
 //±³¾°30*60
 void backgroudFile() {
-	char nSpace[30][60] = { 0 };
-	for (int i = 0; i < 30; i++) {
-		for (int j = 0; j < 60; j++) {
+	
+	char nSpace[20][70] = { 0 };
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 70; j++) {
 			nSpace[0][j] = '-';
-			nSpace[29][j] = '-';
+			nSpace[19][j] = '-';
 			nSpace[i][0] = '|';
-			nSpace[i][59] = '|';
+			nSpace[i][9] = '|';
+			nSpace[i][69] = '|';
 		}
 	}
 	nSpace[15][30] = '#';
-	for (int i = 0; i < 30; i++) {
-		for (int j = 0; j < 60; j++)
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 70; j++)
 		{
 			std::cout << nSpace[i][j];
 		}

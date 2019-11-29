@@ -4,19 +4,18 @@
 #define  LEFT 2
 #define  RIGHT 3
 
-
-void putSet();
-
-void hide();
-void WriteChar(int x, int y);
-
-char GetOper();
-//Ò³Ãæ
-void backgroudFile();
-void index();
-void gamestart();
-void levelpage();
-void gameover();
+typedef struct _coordinate
+{
+	int x = 0;
+	int y = 0;
+}coordinate;
+extern  coordinate food;
+extern  coordinate nSnake_coord[3000];
+extern int x;
+extern int y;
+extern int score ;
+extern int Lenght;
+extern bool e;
 //extern char  nSpace[30][30];
 //extern void backgroudFile();
 //extern void WriteChar(int x, int y, const char* szbuf);
