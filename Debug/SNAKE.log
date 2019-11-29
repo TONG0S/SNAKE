@@ -1,4 +1,4 @@
 ﻿  SNAKE.cpp
-e:\ruanjian\daima\vs\c_preject\procedure\snake\snake\snake\snake.cpp(29): warning C4838: 从“int”转换到“SHORT”需要收缩转换
-e:\ruanjian\daima\vs\c_preject\procedure\snake\snake\snake\snake.cpp(41): warning C4715: “GetOper”: 不是所有的控件路径都返回值
-  SNAKE.vcxproj -> E:\ruanjian\daima\vs\C_preject\procedure\SNAKE\SNAKE\Debug\SNAKE.exe
+e:\ruanjian\daima\vs\c_preject\procedure\snake\snake\snake.cpp(33): warning C4838: 从“int”转换到“SHORT”需要收缩转换
+e:\ruanjian\daima\vs\c_preject\procedure\snake\snake\snake.cpp(45): warning C4715: “GetOper”: 不是所有的控件路径都返回值
+  SNAKE.vcxproj -> E:\ruanjian\daima\vs\C_preject\procedure\SNAKE\Debug\SNAKE.exe

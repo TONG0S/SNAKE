@@ -14,6 +14,10 @@ using std::endl;
 #define  DOWN 1
 #define  LEFT 2
 #define  RIGHT 3
+int Lenght = 3;
+int x = 30;
+int y = 10;
+bool e = true;
 struct coordinate
 {
 	int x = 0;
@@ -45,7 +49,20 @@ void food_coordinate() {
 	int j = rand() % (2 +26);
 	food.x = i, food.y = j;
 	WriteChar(food.x, food.y);
-	printf("☆");
+	printf("o");
+}
+void nSnoke_height() {
+	nSnoke_coord[0].x = x;
+	nSnoke_coord[0].y = y;
+	WriteChar(nSnoke_coord[0].x, nSnoke_coord[0].y);
+	cout << "@";
+	for (int i = 1; i < Lenght; i++)
+	{
+
+		
+		WriteChar(nSnoke_coord[i].x, nSnoke_coord[i].y);
+		cout << "*";
+	}
 }
 void backgroudFile() {
 	char nSpace[30][60] = { 0 };
@@ -65,22 +82,29 @@ void backgroudFile() {
 		printf("\n");
 	}
 }
+//隐藏光标 windows.h
 void hide()
 {
 	CONSOLE_CURSOR_INFO cursor_info = { 1,0 };
 	SetConsoleCursorInfo(hStd, &cursor_info);
 }
 
-#if 0
-int judge() {
-	for (int i = 0; i < 60; i++) {
+#if 1
+void  judge() {
+	for (int i = 0,j=1; i < Lenght; i++) {
 		if ((nSnoke_coord[i].x == 0) || (nSnoke_coord[i].y == 0) || (nSnoke_coord[i].x == 60) || (nSnoke_coord[i].y == 30)) {
 			printf("game over\n");
 			printf("Your Failed\n");
-			return 0;
+			e=false;
+		}
+		if ((nSnoke_coord[0].x == nSnoke_coord[j].x) && (nSnoke_coord[0].y == nSnoke_coord[j].y)) {
+			e = false;
+			j++;
+			printf("game over\n");
+			printf("Your Failed\n");
 		}
 	}
-	return 1;
+	;
 }
 #endif
 int main()
@@ -88,54 +112,76 @@ int main()
 	int n = 0;
 	int nLive = 1;
 	char cOper = 0;
+	
 	int nDir = UP;
-	int x = 30;
-	int y = 10;
-	system("CLS");
-	hide();
-	backgroudFile();
-	food_coordinate();
-	for (int i = 0; i < 3; i++)
+	
+	for (int i = 1; i < Lenght; i++)
 	{
-		
-		nSnoke_coord[i].x = 30+i, nSnoke_coord[i].y = 10;
-		WriteChar(nSnoke_coord[i].x, nSnoke_coord[i].y);
-		cout << "*";
+		nSnoke_coord[i].x = x+i;
+		nSnoke_coord[i].y = y;
+		//cout << "*";
 	}
-	Sleep(1000);
-	while (nLive) {
+	system("CLS");
+	backgroudFile();
+	hide();
+	while (e = true) {
+		food_coordinate();
 		
-		cOper = GetOper();
-		switch (cOper) {
-		case 'W':
-		case 'w': {
-			nDir = UP;
-		}break;
-		case 'S':
-		case 's': {
-			nDir = DOWN;
-		}break;
-		case 'A':
-		case 'a': {
-			nDir = LEFT;
-		}break;
-		case 'D':
-		case 'd': {
-			nDir = RIGHT;
+		Sleep(1000);
+		
+		
+		while (e = true) {
+			
+			
+			nSnoke_height();
+			judge();
+			cOper = GetOper();
+			switch (cOper) {
+			case 'W':
+			case 'w': {
+				nDir = UP;
+			}break;
+			case 'S':
+			case 's': {
+				nDir = DOWN;
+			}break;
+			case 'A':
+			case 'a': {
+				nDir = LEFT;
+			}break;
+			case 'D':
+			case 'd': {
+				nDir = RIGHT;
+			}
+			}
+			WriteChar(nSnoke_coord[Lenght - 1].x, nSnoke_coord[Lenght - 1].y);
+			cout << " ";
+			switch (nDir) {
+			case UP:    y--;       break;
+			case DOWN:  y++; break;
+			case RIGHT: x++; break;
+			case LEFT:  x--; break;
+			}
+			if ((nSnoke_coord[0].x == food.x) && (nSnoke_coord[0].y == food.y)) {
+				Lenght += 1;
+				food_coordinate();
+				nSnoke_coord[Lenght - 1] = nSnoke_coord[Lenght - 2];
+			}
+			for (int i = Lenght - 1; i > 0; i--) {
+				nSnoke_coord[i] = nSnoke_coord[i - 1];
+			}
+			
+			
+			//WriteChar(x, y);
+			//cout << "*";
+			
+			
+			Sleep(200);
+			//nSnoke_coord[Lenght].x = x;
+			//nSnoke_coord[Lenght].y = y;
 		}
-		}
-		WriteChar(x, y);
-		switch (nDir) {
-		case UP:    y--;       break;
-		case DOWN:  y++; break;
-		case RIGHT: x++; break;
-		case LEFT:  x--; break;
-		}
-	
-		Sleep(200);
+		
 	}
-	
-	
 	return 0;
 }
 
