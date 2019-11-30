@@ -9,3 +9,4 @@ extern int decide;
 extern int g_num;//存放信息条数
 extern int g_num;//存放信息条数
 extern int nTemp;
+extern int g_Temp_gameover;

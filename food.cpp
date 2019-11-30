@@ -11,7 +11,7 @@ void food_coordinate() {
 	//coordinate *food = (coordinate *)calloc(  2 * sizeof(coordinate), 1);
 	srand((unsigned)time(NULL));
 	int i = rand() % 58 + 10;
-	int j = rand() % 18 + 1;
+	int j = rand() % 18 + 5;
 	food.x = i, food.y = j;
 	WriteChar(food.x, food.y);
 	printf("o");

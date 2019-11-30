@@ -10,11 +10,13 @@
 #include "fileInfo.h"
 using std::cout;
 using std::endl;
-
+//全局调用的
 int x;
 int y;
 int Lenght;
 int score = 0;
+int level = 1;
+int speed = 300;//速度
 bool e = true;
 #if 1
 
@@ -31,19 +33,20 @@ bool e = true;
 
 int main()
 {
+
+#if 1
+	int n1 = 0;
 	int n = 0;
-	int nLive = 1;
-	char cOper = 0;
-	Lenght = 3;
+	//int nLive = 1;
+	
+	char cOper = 0;//方向
+	Lenght = 3;//蛇的初始长度
 	x = 30;
 	y = 10;
 	int nDir = UP;
-	
-	
 	//背景音乐
 	putSet();
 	//登录注册
-	
 	dealAcc();
 	system("CLS");
 	for (int i = 1; i < Lenght; i++)
@@ -53,28 +56,25 @@ int main()
 
 	}
 	//printf("%d\n", score);
-	index();
+	
 	system("CLS");
-
-
 	backgroudFile();
+	Snakefont();
+	WriteChar(5, 26);
 	system("pause");
-	WriteChar(2, 3);
-	cout << "分数：";
+	
+	hide();//隐藏光标
 
-	hide();
-
-	food_coordinate();
-	Sleep(1000);
+	food_coordinate();//果子
+	//Sleep(1000);
 	//food_coordinate();
 	while (e == true) {
 		//coordinate *nSnake_coord = (coordinate *)calloc(Lenght * sizeof(coordinate), 1);
 		nSnake_height();
 		judge();
-		Snakescore();
-
-
-
+		Snakescore();//分数函数
+		SnakeLevel();
+		
 		cOper = GetOper();
 		//
 		switch (cOper) {
@@ -82,6 +82,7 @@ int main()
 		case 'w': {
 			nDir = UP;
 		}break;
+
 		case 'S':
 		case 's': {
 			nDir = DOWN;
@@ -106,6 +107,7 @@ int main()
 		if ((nSnake_coord[0].x == food.x) && (nSnake_coord[0].y == food.y)) {
 			Lenght += 1;
 			score += 10;
+			
 			food_coordinate();
 			nSnake_coord[Lenght - 1] = nSnake_coord[Lenght - 2];
 		}
@@ -114,17 +116,13 @@ int main()
 		}
 		//WriteChar(x, y);
 		//cout << "*";
-		if (Lenght < 5) {
-			Sleep(200);
-		}
-		else {
-			Sleep(100);
-		}
+		SnakeSpeed();
+		level = score / 100 + 1;
 
 		//nSnake_coord[Lenght].x = x;
 		//nSnake_coord[Lenght].y = y;
 	}
-
+#endif
 	system("pause");
 	return 0;
 }

@@ -2,7 +2,7 @@
 #include "data.h"
 #include "pch.h"
 #include <iostream>
-
+#include "fileInfo.h"
 #include "windows.h"
 //◊¢≤·“≥√Ê
 void index() {
@@ -15,6 +15,7 @@ void index() {
 	printf("                  *               2.  ◊¢≤·                          *\n");
 	printf("                  *                                                 *\n");
 	printf("                  ***************************************************\n");
+	
 }
 //ø™ º“≥√Ê
 void gamestart() {
@@ -35,6 +36,8 @@ void levelpage() {
 	printf("               3. ”È¿÷                            \n");
 }
 void gameover() {
+
+	int g_Temp_gameover = 0;
 	printf("****************************************************\n");
 	printf("*                                                  *\n");
 	printf("*                                                  *\n");
@@ -46,31 +49,81 @@ void gameover() {
 	printf("*           1.  «      2.∑Ò                        *\n");
 	printf("*                                                  *\n");
 	printf("****************************************************\n");
-	printf("   «Î ‰»Î£∫ ");
+	while (g_Temp_gameover == 0) {
+		gameover_fun();
+	}
 	//sccanf("%d")
 }
 //±≥æ∞30*60
 void backgroudFile() {
+#if 1
+	char nSpace[25][90] = { 0 };
+	for (int i = 4; i < 25; i++) {
+		for (int j = 0; j < 90; j++) {
+			nSpace[0][j] = 5;
+			nSpace[4][j] = 5;
+			nSpace[24][j] = 5;
+			nSpace[i][0] = 4;
+			nSpace[i][9] = 4;
+			nSpace[i][69] = 4;
+			nSpace[i][89] = 4;
+		}
+	}
+	for (int i = 1; i < 5; i++) {
+		nSpace[i][0] = 4;
+		nSpace[i][89] = 4;
+	}
+	//for (int i = 7; i < 15; i++) {
+	//	nSpace[i][10] = 5;
+	//}
+	//for (int k = 15; k < 24; k++) {
+	//	nSpace[k][49] = 5;
+	//}
+	//for (int j = 10; j < 50; j++) {
+	//	nSpace[7][j] = 5;
+	//	nSpace[15][j] = 5;
+	//	nSpace[23][j] = 5;
+	//}
+	for (int j = 0; j < 25; j++) {
+		for (int i = 0; i < 90; i++) {
+			switch (nSpace[j][i]) {
+			case 0:printf(" "); break;
+			case 5:printf("_"); break;
+			case 4:printf("|"); break;
+			}
+		}
+		printf("\n");
+		
+	}
+#endif 
 
-	char nSpace[20][70] = { 0 };
-	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < 70; j++) {
+#if 0
+	char nSpace[25][90] = { 0 };
+	for (int i = 4; i < 24; i++) {
+		for (int j = 0; j < 90; j++) {
 			nSpace[0][j] = '-';
-			nSpace[19][j] = '-';
+			nSpace[4][j] = '-';
+			nSpace[24][j] = '-';
 			nSpace[i][0] = '|';
 			nSpace[i][9] = '|';
 			nSpace[i][69] = '|';
+			nSpace[i][89] = '|';
 		}
 	}
+	for (int i = 1; i < 5; i++) {
+		nSpace[i][0] = '|';
+		nSpace[i][89] = '|';
+	}
 	nSpace[15][30] = '#';
-	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < 70; j++)
+	for (int i = 0; i < 25; i++) {
+		for (int j = 0; j < 90; j++)
 		{
 			std::cout << nSpace[i][j];
 		}
 		printf("\n");
 	}
 }
+#endif
 #if 0
 void backgroudFile_lever2() {
 	char nSpace[30][60] = { 0 };
@@ -107,6 +160,6 @@ void backgroudFile_lever2() {
 
 		}
 		printf("\n");
-	}
+
+#endif	}
 }
-#endif

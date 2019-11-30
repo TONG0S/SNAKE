@@ -161,6 +161,7 @@
     <ClCompile Include="AccPass.cpp" />
     <ClCompile Include="dealFile.cpp" />
     <ClCompile Include="food.cpp" />
+    <ClCompile Include="pagefunction.cpp" />
     <ClCompile Include="pageSnake.cpp" />
     <ClCompile Include="setSnake.cpp" />
     <ClCompile Include="SNAKE.cpp" />

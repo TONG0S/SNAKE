@@ -22,9 +22,3 @@ void nSnake_height() {
 		cout << "*";
 	}
 }
-//Êä³ö·ÖÊý
-void Snakescore() {
-
-	WriteChar(2, 6);
-	cout << score;
-}
