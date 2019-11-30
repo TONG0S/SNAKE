@@ -33,8 +33,6 @@ bool e = true;
 
 int main()
 {
-
-#if 1
 	int n1 = 0;
 	int n = 0;
 	//int nLive = 1;
@@ -82,7 +80,6 @@ int main()
 		case 'w': {
 			nDir = UP;
 		}break;
-
 		case 'S':
 		case 's': {
 			nDir = DOWN;
@@ -122,7 +119,7 @@ int main()
 		//nSnake_coord[Lenght].x = x;
 		//nSnake_coord[Lenght].y = y;
 	}
-#endif
+
 	system("pause");
 	return 0;
 }

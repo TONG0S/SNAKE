@@ -3,7 +3,6 @@
 #include "windows.h"
 #include "conio.h"
 #include "data.h"
-#include <time.h>
 #include "fileInfo.h"
 using std::cout;
 using std::endl;
@@ -15,7 +14,7 @@ void Snakefont() {
 	cout << "LEVEL";
 	WriteChar(75, 6);
 	cout << "排行榜";
-	WriteChar(40, 2);
+	WriteChar(45, 2);
 	cout << "贪吃蛇";
 }
 //输出分数

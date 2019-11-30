@@ -1,9 +1,8 @@
 #include "conio.h"
 #include "data.h"
-#include "pch.h"
 #include <iostream>
 #include "fileInfo.h"
-#include "windows.h"
+
 //×¢²áÒ³Ãæ
 void index() {
 	printf("                  ***************************************************\n");
@@ -73,17 +72,7 @@ void backgroudFile() {
 		nSpace[i][0] = 4;
 		nSpace[i][89] = 4;
 	}
-	//for (int i = 7; i < 15; i++) {
-	//	nSpace[i][10] = 5;
-	//}
-	//for (int k = 15; k < 24; k++) {
-	//	nSpace[k][49] = 5;
-	//}
-	//for (int j = 10; j < 50; j++) {
-	//	nSpace[7][j] = 5;
-	//	nSpace[15][j] = 5;
-	//	nSpace[23][j] = 5;
-	//}
+			
 	for (int j = 0; j < 25; j++) {
 		for (int i = 0; i < 90; i++) {
 			switch (nSpace[j][i]) {
@@ -93,9 +82,14 @@ void backgroudFile() {
 			}
 		}
 		printf("\n");
-		
+
 	}
-#endif 
+
+		}
+		
+
+#endif	
+
 
 #if 0
 	char nSpace[25][90] = { 0 };
@@ -161,5 +155,4 @@ void backgroudFile_lever2() {
 		}
 		printf("\n");
 
-#endif	}
-}
+#endif	
