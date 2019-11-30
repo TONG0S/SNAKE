@@ -27,6 +27,9 @@
     <ClInclude Include="fileInfo.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="log_in.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SNAKE.cpp">
@@ -41,16 +44,16 @@
     <ClCompile Include="temp.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Account_Password.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="pageSnake.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SnokeLeight.cpp">
+    <ClCompile Include="AccPass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="dealFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SnokeLeight.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

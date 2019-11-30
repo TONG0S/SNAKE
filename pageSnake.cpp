@@ -2,16 +2,19 @@
 #include "data.h"
 #include "pch.h"
 #include <iostream>
-#include "log_in.h"
+
 #include "windows.h"
 //注册页面
 void index() {
-	printf("**************************************************\n");
-	printf("           欢迎来到贪吃蛇游戏                     \n");
-	printf("            请先登录您的账户                      \n");
-	printf("                                                  \n");
-	printf("               1.  登录                           \n");
-	printf("               2.  注册                           \n");
+	printf("                  ***************************************************\n");
+	printf("                  *                                                 *\n");
+	printf("                  *           欢迎来到贪吃蛇游戏                    *\n");
+	printf("                  *            请先登录您的账户                     *\n");
+	printf("                  *                                                 *\n");
+	printf("                  *               1.  登录                          *\n");
+	printf("                  *               2.  注册                          *\n");
+	printf("                  *                                                 *\n");
+	printf("                  ***************************************************\n");
 }
 //开始页面
 void gamestart() {
@@ -22,6 +25,7 @@ void gamestart() {
 	printf("              规则如下：                          \n");
 	printf("     'w'向上   's'向下   'a'向左  'd'向右         \n");
 	printf("          撞到墙壁游戏结束                        \n");
+	printf("                                                  \n");
 }
 void levelpage() {
 	printf("           即将开始贪吃蛇游戏                     \n");

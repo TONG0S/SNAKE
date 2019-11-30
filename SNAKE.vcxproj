@@ -155,9 +155,10 @@
     <ClInclude Include="data.h" />
     <ClInclude Include="fileInfo.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="log_in.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Account_Password.cpp" />
+    <ClCompile Include="AccPass.cpp" />
     <ClCompile Include="dealFile.cpp" />
     <ClCompile Include="food.cpp" />
     <ClCompile Include="pageSnake.cpp" />
