@@ -17,142 +17,54 @@ void index() {
 	
 }
 //开始页面
-void gamestart() {
-	printf("           欢迎来到贪吃蛇游戏                     \n");
-	printf("                                                  \n");
-	printf("**************************************************\n");
-	printf("                                                  \n");
-	printf("              规则如下：                          \n");
-	printf("     'w'向上   's'向下   'a'向左  'd'向右         \n");
-	printf("          撞到墙壁游戏结束                        \n");
-	printf("                                                  \n");
+void gamestart() 
+{
+	printf("                              欢迎来到贪吃蛇游戏                     \n");
+	printf("                                                                     \n");
+	printf("            *********************************************************\n");
+	printf("                                                                     \n");
+	printf("                                 规则如下：                          \n");
+	printf("                                                                     \n");
+	printf("                        'w'向上   's'向下   'a'向左  'd'向右         \n");
+	printf("                             撞到墙壁游戏结束                        \n");
+	printf("                                                                     \n");
 }
-void levelpage() {
-	printf("           即将开始贪吃蛇游戏                     \n");
-	printf("              请选择关卡                          \n");
-	printf("               1. 容易                            \n");
-	printf("               2. 简单                            \n");
-	printf("               3. 娱乐                            \n");
+void levelpage() 
+{
+	printf("      # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   \n");
+	printf("                      即 将 开 始 贪 吃 蛇 游 戏                     \n");
+	printf("                                                                     \n");
+	printf("                                                                     \n");
+	printf("                              请选择关卡                             \n");
+	printf("                                                                     \n");
+	printf("                               1. 容易                            \n");
+	printf("                               2. 简单                            \n");
+	printf("                               3. 娱乐                            \n");
+	printf("                                                                     \n");
 }
 void gameover() {
 
-	int g_Temp_gameover = 0;
-	printf("****************************************************\n");
-	printf("*                                                  *\n");
-	printf("*                                                  *\n");
-	printf("*                                                  *\n");
-	printf("*               GAME  OVER                         *\n");
-	printf("*                 ~ _ ~                            *\n");
-	printf("*                                                  *\n");
-	printf("*              是否重新开始                        *\n");
-	printf("*           1. 是      2.否                        *\n");
-	printf("*                                                  *\n");
-	printf("****************************************************\n");
-	while (g_Temp_gameover == 0) {
-		gameover_fun();
-	}
-	//sccanf("%d")
+	
+	printf("              ****************************************************\n");
+	printf("              *                                                  *\n");
+	printf("              *                                                  *\n");
+	printf("              *                                                  *\n");
+	printf("              *               GAME  OVER                         *\n");
+	printf("              *                 ~ _ ~                            *\n");
+	printf("              *                                                  *\n");
+	printf("              *              是否重新开始                        *\n");
+	printf("              *           1. 是      2.否                        *\n");
+	printf("              *                                                  *\n");
+	printf("              ****************************************************\n");
+	
+	
 }
-//背景30*60
-void backgroudFile() {
-#if 1
-	char nSpace[25][90] = { 0 };
-	for (int i = 4; i < 25; i++) {
-		for (int j = 0; j < 90; j++) {
-			nSpace[0][j] = 5;
-			nSpace[4][j] = 5;
-			nSpace[24][j] = 5;
-			nSpace[i][0] = 4;
-			nSpace[i][9] = 4;
-			nSpace[i][69] = 4;
-			nSpace[i][89] = 4;
-		}
-	}
-	for (int i = 1; i < 5; i++) {
-		nSpace[i][0] = 4;
-		nSpace[i][89] = 4;
-	}
-			
-	for (int j = 0; j < 25; j++) {
-		for (int i = 0; i < 90; i++) {
-			switch (nSpace[j][i]) {
-			case 0:printf(" "); break;
-			case 5:printf("_"); break;
-			case 4:printf("|"); break;
-			}
-		}
-		printf("\n");
-
-	}
-
-		}
-		
-
-#endif	
-
-
-#if 0
-	char nSpace[25][90] = { 0 };
-	for (int i = 4; i < 24; i++) {
-		for (int j = 0; j < 90; j++) {
-			nSpace[0][j] = '-';
-			nSpace[4][j] = '-';
-			nSpace[24][j] = '-';
-			nSpace[i][0] = '|';
-			nSpace[i][9] = '|';
-			nSpace[i][69] = '|';
-			nSpace[i][89] = '|';
-		}
-	}
-	for (int i = 1; i < 5; i++) {
-		nSpace[i][0] = '|';
-		nSpace[i][89] = '|';
-	}
-	nSpace[15][30] = '#';
-	for (int i = 0; i < 25; i++) {
-		for (int j = 0; j < 90; j++)
-		{
-			std::cout << nSpace[i][j];
-		}
-		printf("\n");
-	}
+void confilm() {
+	WriteChar(40, 5);
+	std::cout << "是否开始游戏" << std::endl;
+	WriteChar(30, 10);
+	std::cout << "是" << std::endl;
+	WriteChar(60, 10);
+	std::cout << "否" << std::endl;
 }
-#endif
-#if 0
-void backgroudFile_lever2() {
-	char nSpace[30][60] = { 0 };
-	for (int i = 0; i < 30; i++) {
-		for (int j = 0; j < 60; j++) {
-			nSpace[0][j] = 5;
-			nSpace[29][j] = 5;
-			nSpace[i][0] = 5;
-			nSpace[i][59] = 5;
-		}
-	}
-	for (int i = 7; i < 15; i++) {
-		nSpace[i][10] = 5;
-	}
-	for (int k = 15; k < 24; k++) {
-		nSpace[k][49] = 5;
-	}
-	for (int j = 10; j < 50; j++) {
-		nSpace[7][j] = 5;
-		nSpace[15][j] = 5;
-		nSpace[23][j] = 5;
-	}
 
-	for (int i = 0; i < 30; i++) {
-		for (int j = 0; j < 60; j++)
-		{
-			std::cout << nSpace[i][j];
-			/*if (nSpace[i][j] == 5) {
-				std::cout << "#";
-			}*/
-			//
-
-		//std::cout << " ";
-
-		}
-		printf("\n");
-
-#endif	

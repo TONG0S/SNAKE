@@ -16,17 +16,7 @@ extern int y;
 extern int score ;
 extern int level ;
 extern int Lenght;
+//extern int nDir;
 extern int speed;
 extern bool e;
-//extern char  nSpace[30][30];
-//extern void backgroudFile();
-//extern void WriteChar(int x, int y, const char* szbuf);
-//char GetOper();
-//struct coordinate
-//{
-//	int x = 0;
-//	int y = 0;
-//};
-//extern struct coordinate food;
-//extern struct coordinate nSnake_coord[100];
-// 
+extern int nSpace[35][110];

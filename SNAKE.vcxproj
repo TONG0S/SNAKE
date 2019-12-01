@@ -151,16 +151,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="coordinate_deal.cpp" />
+    <ClInclude Include="pathdeal.cpp" />
     <ClInclude Include="data.h" />
     <ClInclude Include="fileInfo.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="log_in.h" />
+    <ClInclude Include="Snake_map.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AccPass.cpp" />
     <ClCompile Include="dealFile.cpp" />
     <ClCompile Include="food.cpp" />
+    <ClCompile Include="map.cpp" />
     <ClCompile Include="pagefunction.cpp" />
     <ClCompile Include="pageSnake.cpp" />
     <ClCompile Include="setSnake.cpp" />

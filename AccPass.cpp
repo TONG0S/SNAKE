@@ -17,16 +17,17 @@ void read_Account() {
 		g_Log = (nAccount *)calloc(4  * sizeof(nAccount), 1);
 	}
 	else {
-		g_Log = (nAccount *)calloc(g_num * 2* sizeof(nAccount), 1);
 		fread(&g_num, 4, 1, fpFile);
+		g_Log = (nAccount *)calloc(g_num * 2* sizeof(nAccount), 1);
 		for (int i = 0; i < g_num; i++) {
-			fscanf_s(fpFile, "\n");
+			//fscanf_s(fpFile, "\n");
 			fscanf_s(fpFile, "%s\n", g_Log[i].chName,30);
 			fscanf_s(fpFile, "%s\n", g_Log[i].chPassword,30);
-			fclose(fpFile);
-
+			
 		}
+		fclose(fpFile);
 	}
+	
 }
 //从文件写入页面
 void write_Account() {
@@ -37,7 +38,7 @@ void write_Account() {
 	}
 	fwrite(&g_num, 4, 1, fpFile);
 	for (int i = 0; i < g_num; i++) {
-		fprintf(fpFile, "\n");
+		
 
 		fprintf(fpFile, "%s\n", g_Log[i].chName);
 		fprintf(fpFile, "%s\n", g_Log[i].chPassword);

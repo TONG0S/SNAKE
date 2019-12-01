@@ -8,13 +8,13 @@ using std::cout;
 using std::endl;
 //文字
 void Snakefont() {
-	WriteChar(2, 8);
+	WriteChar(2, 13);
 	cout << "分数：";
-	WriteChar(2, 15);
+	WriteChar(2, 20);
 	cout << "LEVEL";
-	WriteChar(75, 6);
+	WriteChar(90, 13);
 	cout << "排行榜";
-	WriteChar(45, 2);
+	WriteChar(50, 3);
 	cout << "贪吃蛇";
 }
 //输出分数
@@ -50,7 +50,7 @@ void SnakeSpeed() {
 }
 void gameover_fun() {
 	int button = 0;
-	
+	gameover();
 	printf("请输入：");
 	scanf_s("%d", &button);
 	switch (button)

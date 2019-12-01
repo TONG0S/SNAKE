@@ -11,13 +11,7 @@
 using std::cout;
 using std::endl;
 //全局调用的
-int x;
-int y;
-int Lenght;
-int score = 0;
-int level = 1;
-int speed = 300;//速度
-bool e = true;
+
 #if 1
 
 //class scoreSnake {
@@ -33,19 +27,17 @@ bool e = true;
 
 int main()
 {
-	int n1 = 0;
-	int n = 0;
+	
+	
 	//int nLive = 1;
 	
-	char cOper = 0;//方向
-	Lenght = 3;//蛇的初始长度
+	char cOper = 0;        //方向
+	Lenght = 3;            //蛇的初始长度
 	x = 30;
 	y = 10;
 	int nDir = UP;
-	//背景音乐
-	putSet();
-	//登录注册
-	dealAcc();
+	putSet();             //背景音乐
+	dealAcc();            //登录注册
 	system("CLS");
 	for (int i = 1; i < Lenght; i++)
 	{
@@ -53,15 +45,16 @@ int main()
 		nSnake_coord[i].y = y;
 
 	}
-	//printf("%d\n", score);
 	
+	dealAcc();
 	system("CLS");
-	backgroudFile();
+	
+	select_mode();
 	Snakefont();
-	WriteChar(5, 26);
+	WriteChar(5, 36);
 	system("pause");
 	
-	hide();//隐藏光标
+	hide();         //隐藏光标
 
 	food_coordinate();//果子
 	//Sleep(1000);
@@ -104,7 +97,6 @@ int main()
 		if ((nSnake_coord[0].x == food.x) && (nSnake_coord[0].y == food.y)) {
 			Lenght += 1;
 			score += 10;
-			
 			food_coordinate();
 			nSnake_coord[Lenght - 1] = nSnake_coord[Lenght - 2];
 		}

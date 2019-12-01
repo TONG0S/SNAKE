@@ -9,10 +9,12 @@ HANDLE hStd = GetStdHandle(STD_OUTPUT_HANDLE);
 //中文输入及其他设置
 void putSet() {
 	system("title snake");
+	system("color 8F");
+	system("mode con cols=150 lines=40");
 	keybd_event(VK_SHIFT, 0, 0, 0);
 	Sleep(100);
 	keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, 0);
-	PlaySoundA("E:\\ruanjian\\daima\\vs\\C_preject\\procedure\\SNAKE\\Mermaid_MiyanoMamoru.wav", NULL, SND_ASYNC | SND_NODEFAULT);
+	PlaySoundA("E:\\ruanjian\\daima\\vs\\C_preject\\SNAKE\\Mermaid_MiyanoMamoru.wav", NULL, SND_ASYNC | SND_NODEFAULT);
 
 }
 // 隐藏光标 windows.h
