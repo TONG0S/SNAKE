@@ -12,16 +12,17 @@ void food_coordinate() {
 	int nfood_num = 1;    //”√”⁄≈–∂œ
 	srand((unsigned)time(NULL));
 	while (nfood_num!=0) {
-		int i = rand() % 118 + 14;
-		int j = rand() % 28 + 10;
+		int i = rand() % (78/2) + 14;
+		int j = rand() % (33/2) + 10;
 		if (nSpace[j][i] != 5) {
 			food.x = i, food.y = j;
 			WriteChar(food.x, food.y);
-			printf("o");
+			printf("\033[36mÖe\033[1m");
 			nfood_num = 0;
 		}
 	}
 }
+
 #if 0
 void food_coordinate() {
 	srand((unsigned)time(NULL));

@@ -1,2 +1,26 @@
-﻿  map.cpp
-  SNAKE.vcxproj -> E:\ruanjian\daima\vs\C_preject\SNAKE\Debug\SNAKE.exe
+﻿  AccPass.cpp
+  SNAKE.cpp
+  SnokeLeight.cpp
+  dealFile.cpp
+  food.cpp
+  map.cpp
+e:\ruanjian\daima\vs\c_preject\snake\snake\map.cpp(57): warning C4838: 从“int”转换到“SHORT”需要收缩转换
+  pageSnake.cpp
+  pagefunction.cpp
+e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(33): warning C4804: “>=”: 在操作中使用类型“bool”不安全
+e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(36): warning C4804: “>=”: 在操作中使用类型“bool”不安全
+e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(40): warning C4804: “>=”: 在操作中使用类型“bool”不安全
+e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(43): warning C4804: “>=”: 在操作中使用类型“bool”不安全
+e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(61): warning C4129: “d”: 不可识别的字符转义序列
+e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(61): warning C4129: “C”: 不可识别的字符转义序列
+e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(61): warning C4129: “p”: 不可识别的字符转义序列
+e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(61): warning C4129: “S”: 不可识别的字符转义序列
+e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(61): warning C4129: “D”: 不可识别的字符转义序列
+  setSnake.cpp
+e:\ruanjian\daima\vs\c_preject\snake\snake\setsnake.cpp(36): warning C4838: 从“int”转换到“SHORT”需要收缩转换
+  write_game.cpp
+  正在生成代码...
+e:\ruanjian\daima\vs\c_preject\snake\snake\setsnake.cpp(49): warning C4715: “GetOper”: 不是所有的控件路径都返回值
+pagefunction.obj : error LNK2019: 无法解析的外部符号 "void __cdecl start_game(void)" (?start_game@@YAXXZ)，该符号在函数 "void __cdecl gameover_fun(void)" (?gameover_fun@@YAXXZ) 中被引用
+SNAKE.obj : error LNK2001: 无法解析的外部符号 "void __cdecl start_game(void)" (?start_game@@YAXXZ)
+E:\ruanjian\daima\vs\C_preject\SNAKE\Debug\SNAKE.exe : fatal error LNK1120: 1 个无法解析的外部命令

@@ -3,41 +3,77 @@
 #include <iostream>
 #include "fileInfo.h"
 #include "Snake_map.h"
+#include <windows.h>
+
 //背景30*60
-int nSpace[35][110] = { 0 };
+char nSpace[35][150] = { 0 };
 void backgroudFile() {
 #if 1
-
-
-	for (int j = 0; j < 110; j++) {
-		nSpace[0][j] = 5;
-		nSpace[9][j] = 5;
-		nSpace[34][j] = 5;
-	}
-			for (int i = 10; i < 35; i++) {
-			nSpace[i][0] = 4;
-			nSpace[i][14] = 4;
-			nSpace[i][79] = 4;
-			nSpace[i][109] = 4;
+	nSpace[0][0] = 5;
+	for (int i = 0; i < 35; i++) {
+		for (int j = 0; j < 70; j++) {
+			if ((i == 0 && j != 0) || (i == 5 && j != 0) || (i == 34 && j != 0)) {
+				nSpace[i][j] = 5;
+			}
+			//
 		}
-	
-    for (int i = 1; i < 10; i++) {
-    	nSpace[i][0] = 4;
-    	nSpace[i][109] = 4;
-    }
-	
 }
-void putMap() {
-	for (int j = 0; j < 35; j++) {
-		for (int i = 0; i < 110; i++) {
-			switch (nSpace[j][i]) {
-			case 0:printf(" "); break;
-			case 5:printf("_"); break;
-			case 4:printf("|"); break;
-			case 3:printf("卐"); break;
+	for (int i = 0; i < 35; i++) {
+		for (int j = 0; j < 70; j++) {
+					if ((j == 0 && i != 0)  || (j == 69 && i != 0)) {
+					nSpace[i][j] = 4;
 			}
 		}
-		printf("\n");
+	}
+	for (int i = 5; i < 35; i++) {
+		for (int j = 0; j < 70; j++) {
+			if ((j == 9 && i != 0) || (j == 54 && i != 0)) {
+				nSpace[i][j] = 4;
+			}
+		}
+	}
+	
+//	for (int i = 0; i < 10; i++) {
+//		nSpace[i][0] = 4;
+//			nSpace[i][40] = 4;
+//	}
+	/*for (int j = 0; j <50; j++) {
+		nSpace[0][j] = 5;
+		nSpace[34][j] = 5;
+		nSpace[9][j] = 5;
+	       }
+			for (int i = 1; i <34; i++) {
+			nSpace[i][0] = 4;
+			nSpace[i][97] = 4;
+		*///	nSpace[i][80] = 4;
+		//	nSpace[i][109] = 4;
+	   	         }
+	
+   
+void WriteChar1(int x, int y)
+{
+	HANDLE hStd = GetStdHandle(STD_OUTPUT_HANDLE);
+	//获取一个输出句柄
+	COORD stcPos = { x*2,y };
+	//设置控制台光标位置
+	SetConsoleCursorPosition(hStd, stcPos);
+	//输出字符串
+
+}
+
+void putMap() {
+	for (int j = 0; j < 35; j++) {
+		for (int i = 0; i < 70; i++) {
+			WriteChar1( i,j);
+			switch (nSpace[j][i]) {
+			case 0:printf("  "); break;
+			case 5:printf("\033[34m█\033[1m "); break;
+			case 4:printf("\033[35m█"); break;
+			case 3:printf("¤"); break;
+			}
+		}
+		//printf("\n");
+		//printf("111");
 
 	}
 }
@@ -73,14 +109,17 @@ void map_B() {
 void select_mode() {
 	levelpage();
 		int nStart = 0;
-		//printf("请输入：");
-	
-	
+		WriteChar(50, 10);
+		printf("请输入：");
 		scanf_s("%d", &nStart);
 		switch (nStart)
 		{
-		case 1:system("CLS"); backgroudFile(); putMap(); break;
-		case 2: system("CLS"); map_B(); putMap(); break;
+		case 1: {
+			system("CLS"); backgroudFile(); putMap();
+		}break;
+		case 2: {
+			system("CLS"); map_B(); putMap();
+		}break;
 		default:
 			break;
 		}

@@ -12,12 +12,12 @@ void nSnake_height() {
 	nSnake_coord[0].y = y;
 	WriteChar(nSnake_coord[0].x, nSnake_coord[0].y);
 	//WORD color : blue;
-	cout << "@";
+	cout << "\033[33m¡ô\033[33m";
 	for (int i = 1; i < Lenght; i++)
 	{
 
 
 		WriteChar(nSnake_coord[i].x, nSnake_coord[i].y);
-		cout << "*";
+		cout << "\033[32m¡ñ\033[32m";
 	}
 }

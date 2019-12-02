@@ -19,4 +19,6 @@ extern int Lenght;
 //extern int nDir;
 extern int speed;
 extern bool e;
-extern int nSpace[35][110];
+extern char nSpace[35][150];
+extern char bufAcc[30];
+extern char bufWord[30];// µ±«∞’Àªß

@@ -12,3 +12,5 @@ int score = 0;
 int level = 1;
 int speed = 300;//速度
 bool e = true;
+char bufAcc[30] = { 0 };
+char bufWord[30] = { 0 };//当前账户

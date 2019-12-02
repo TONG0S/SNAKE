@@ -4,17 +4,18 @@
 #include "conio.h"
 #include "data.h"
 #include "fileInfo.h"
+#include "log_in.h"
 using std::cout;
 using std::endl;
 //文字
 void Snakefont() {
-	WriteChar(2, 13);
+	WriteChar(2, 9);
 	cout << "分数：";
-	WriteChar(2, 20);
+	WriteChar(2, 14);
 	cout << "LEVEL";
-	WriteChar(90, 13);
+	WriteChar(58, 10);
 	cout << "排行榜";
-	WriteChar(50, 3);
+	WriteChar(30, 3);
 	cout << "贪吃蛇";
 }
 //输出分数
@@ -25,7 +26,7 @@ void Snakescore() {
 }
 //输出等级
 void SnakeLevel() {
-	WriteChar(2, 18);
+	WriteChar(2, 16);
 	cout << level;
 }
 void SnakeSpeed() {
@@ -51,15 +52,26 @@ void SnakeSpeed() {
 void gameover_fun() {
 	int button = 0;
 	gameover();
+	WriteChar(10, 50);
 	printf("请输入：");
 	scanf_s("%d", &button);
 	switch (button)
 	{
-	case 1:system("CLS"); levelpage(); break;
+	case 1:system("CLS"); start_game(); break;
 	case 2:exit(1); system("E:\ruanjian\daima\vs\C_preject\procedure\SNAKE\Debug\SNAKE.exe -t -f");
 	default:
 		printf("输入错误，请重新输入！");
 		break;
 	}
 
+}
+void rank() {
+	//WriteChar(86, 15);
+	//cout << bufAcc;
+	//WriteChar(95, 15);
+	//cout<<score;
+	for (int i = 0; i < g_num; i++) {
+		//for(int j=15;j<29){}
+		//WriteChar(86, 15);
+	}
 }

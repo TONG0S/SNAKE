@@ -2,13 +2,13 @@
 /*    
 存放声明
 */
-//void start_game();
+extern void start_game();
 
  /*  windows   */
 void putSet();
 void hide();
 void WriteChar(int x, int y);
-
+void hideput();
 char GetOper();
 
 /*    页面    */
@@ -27,6 +27,7 @@ void nSnake_height();
 int  judge_wall();
 void eat_food();
 
+
 /*页面功能*/
 void Snakescore();
 void SnakeLevel();
@@ -36,7 +37,7 @@ void gameover_fun();          //结束页面的功能
 void  judge();
 void  Snakefont();
 void select_mode();
-
+void rank();
 
 /*注册登录信息*/
 void dealAcc();

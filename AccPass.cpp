@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string.h>
 #include "windows.h"
+#include "data.h"
 int g_num = 0;
 int nTemp = 0;
 int decide = 0;
@@ -52,38 +53,42 @@ void log_in() {
 	free(g_Log);
 	g_Log = Temp_log;
 }
-	
-	printf("      ’Àªß£∫");
+	WriteChar(34, 18);
 	scanf_s("%s", g_Log[g_num].chName, 30);
-	printf("\n");
-	printf("      √‹¬Î£∫");
+	WriteChar(34, 20);
 	scanf_s("%s", g_Log[g_num].chPassword, 30);
 	g_num++;
 }
 void Account() {
-	char bufAcc[30] = { 0 };
-	char bufWord[30] = { 0 };
+
 	int nAcc = 1;
 	int nWord = 1;
-	printf("                       ’Àªß£∫");
+	
+	WriteChar(34, 18);
 	scanf_s("%s", bufAcc, 30);
-	printf("\n");
-	printf("                       √‹¬Î£∫");
+	WriteChar(34, 20);
 	scanf_s("%s", bufWord, 30);
+	WriteChar(34, 27);
 	for (int i = 0; i < g_num; i++) {
 		nAcc = strcmp(bufAcc, g_Log[i].chName);
 		nWord = strcmp(bufWord, g_Log[i].chPassword);
 		if (nAcc==0&&nWord==0) {
 			decide = 1;
-			printf("\nµ«¬º≥…π¶!!!");
+			printf("µ«¬º≥…π¶!!!");
+			strcpy_s(bufAcc, g_Log[i].chName);
+			strcpy_s(bufWord, g_Log[i].chPassword);
+		
 				break;
 	}
 	}
 	if (nAcc == 0 && nWord != 0) {
 		printf("√‹¬Î¥ÌŒÛ");
+		Sleep(600);
 	}
 	else if (nWord == 0 && nAcc != 0) {
+		
 		printf("’Àªß¥ÌŒÛ");
+		
 	}
 	else if (nWord != 0 && nAcc != 0) {
 		printf("’Àªß√‹¬Î¥ÌŒÛ");
@@ -94,13 +99,13 @@ void dealAcc() {
 	read_Account();
 	while (decide!=1) {
 		index();
-		printf("\n");
-		printf("            «Î ‰»Î£∫");
+		WriteChar(30, 16);
+		printf("«Î ‰»Î£∫");
 		scanf_s("%d", &nTemp);
 		printf("\n");
 		switch (nTemp)
 		{
-		case 1:Account(); break;
+		case 1:Account(); Sleep(600); break;
 		case 2:log_in(); write_Account(); break;
 		default:
 			break;
