@@ -23,8 +23,9 @@ extern int Lenght;
 extern int speed;  //º”ÀŸ
 extern bool e;
 extern char nSpace[35][150];
+extern char nSpace_draw[35][150];
 extern char bufAcc[30];
-
+extern int map_decide;
 typedef struct _gameinfo
 {
 	

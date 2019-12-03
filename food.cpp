@@ -14,22 +14,41 @@
 
 
 #if 1
+//void putfood() {
+//
+//}
 void  food_coordinate()
 {
 	//food_props();
 	int nfood_num = 1;    //ÓÃÓÚÅÐ¶Ï	
+	
 	while (nfood_num != 0) {
 		srand((unsigned)time(NULL));
 		int i = rand() % (78 / 2) + 14;
 		int j = rand() % (33 / 2) + 16;
-		if ((nSpace[j][i] != 5) && (nSpace[j][i] != 4) && (nSpace[j][i] != 3)) {
-			int px = i;
-			int py = j;
-			food.x = px, food.y = py;
-			WriteChar(food.x, food.y);
-			printf("\033[36m\033[1m…e");
-			nfood_num = 0;
-		}
+	//	switch (map_decide) {
+	//	case 1: {
+			if ((nSpace[j][i] != 5) && (nSpace[j][i] != 4) && (nSpace[j][i] != 3)) {
+				int px = i;
+				int py = j;
+				food.x = px, food.y = py;
+				WriteChar(food.x, food.y);
+				printf("\033[36m\033[1m…e");
+				nfood_num = 0;
+			}
+	//	}
+	//			break;
+	//	case 2: {if ((nSpace_draw[j][i] != 5) && (nSpace_draw[j][i] != 4) && (nSpace_draw[j][i] != 3)) {
+	//		int px = i;
+	//		int py = j;
+	//		food.x = px, food.y = py;
+	//		WriteChar(food.x, food.y);
+	//		printf("\033[36m\033[1m…e");
+	//		nfood_num = 0;
+	//	}
+	//	}break;
+	//	}
+	
 	}
 	
 }

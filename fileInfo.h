@@ -8,13 +8,15 @@
 void putSet();
 void hide();
 void WriteChar(int x, int y);
-void WriteChar2(int x, int y, const char* pStr);
+void Mouse_info();
+//void WriteChar2(int x, int y, const char* pStr);
 void hideput();
 char GetOper();
 void pause_game();//ÔÝÍ£
-void things();
+
 /*    Ò³Ãæ    */
 
+void start_animation();
 void index();           //µÇÂ¼×¢²áÒ³Ãæ
 void gamestart();
 void levelpage();
@@ -54,7 +56,8 @@ void dealAcc();
 void backgroudFile();
 void putMap();
 void map_B();
-
+void writemap();
+void readmap();
 
 //´æ¶Áµµ
 void write_game();

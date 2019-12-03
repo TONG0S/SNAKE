@@ -15,6 +15,7 @@ using std::cout;
 using std::endl;
 
 
+
 #if 1
 void start_game() {
 	for (int i = 0; i < Lenght; i++) {
@@ -35,6 +36,11 @@ void start_game() {
 
 	}
 	int nDir = UP;
+	read_game();
+	
+	
+	//Sleep(2000);
+	system("CLS");
 	gamestart();            //规则界面1
 	system("pause");
 	system("CLS");
@@ -91,14 +97,37 @@ void start_game() {
 		}
 		SnakeSpeed();
 		level = score / 100 + 1;
+		
 		pause_game();          //暂停按键
 	}
 }
 #endif
 
+
+
 int main()
 {
+	/*clock_t t1 = clock();
+
+	if (clock() - t1 > 1000) {
+		t1 = clock();
+
+	}
+	
+*/
+
+	//while (1)
+	//{
+	//	if (_kbhit())
+	//	{
+
+	//	}
+
+
+	//}
+
 	//int nLive = 1;
+	
 	putSet();             //背景音乐
 	dealAcc();            //登录注册
 	system("CLS");
@@ -106,10 +135,6 @@ int main()
 	//int j = 1;;
 	
 	start_game();
-	
-	
-	
-
 	system("pause");
 	return 0;
 }

@@ -24,11 +24,11 @@
     <ClInclude Include="log_in.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="pathdeal.cpp">
-      <Filter>源文件</Filter>
-    </ClInclude>
     <ClInclude Include="food.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mapwrite.cpp">
+      <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

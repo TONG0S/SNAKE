@@ -7,6 +7,7 @@
 
 //背景30*60
 char nSpace[35][150] = { 0 };
+char nSpace_draw[35][150] = { 0 };
 void backgroudFile() {
 #if 1
 	nSpace[0][0] = 5;
@@ -87,28 +88,51 @@ void map_B() {
 		nSpace[28][j] = 3;
 	}
 }
-#if 0
+#if 1
 //自定义地图
 void drawmap() {
-	COORD pos;    //存储鼠标位置
-	DWORD dwread;//存储读取记录
-	
-	INPUT_RECORD ir;
-	HANDLE hstdin = GetStdHandle(STD_INPUT_HANDLE);//获取标准输出句柄
-	int enddrawmap = 0;
+
+	HANDLE hstdin = GetStdHandle(STD_INPUT_HANDLE);//获取标准输入句柄
+
+	INPUT_RECORD ir = { 0 };                               // MOUSE_EVENT_RECORD所在的结构体
+	DWORD dwRead = 0;                                  //存储读取记录
+	COORD POS;
+	SetConsoleMode(hstdin, ENABLE_WINDOW_INPUT | ENABLE_MOUSE_INPUT);
+
+	//backgroudFile();
+	//putMap();
+	int enddrawmap = 0;                              //循环结束判断变量
 	while (enddrawmap != 1) {
-		ReadConsoleInput(hstdin, &ir, 1, &dwread);
-		pos = ir.Event.MouseEvent.dwMousePosition;
-		if(ir.EventType==MOUSE_EVENT){
-			VOID MouseEventProc(MOUSE_EVENT_RECORD mer){
-				switch (mer.dwEventFlags) {
+		ReadConsoleInput(hstdin, &ir, 1, &dwRead);
+		POS = ir.Event.MouseEvent.dwMousePosition;
+		if (ir.EventType == MOUSE_EVENT) {               //如果是鼠标事件
+		//	int mx = ir.Event.MouseEvent.dwMousePosition.X;//鼠标在控制台x轴的位置
+		//	int my = ir.Event.MouseEvent.dwMousePosition.Y;//鼠标在控制台y轴的位置
+		//posx = x;
+		//	posy = y;
 
-					if (mer.Event.MouseEvent)
-
-				}
+			if (GetAsyncKeyState(VK_LBUTTON)) {
+				WriteChar1(POS.X/2, POS.Y);
+				printf("\033[31m\033[1m¤");
+				nSpace[POS.Y][POS.X/2] = 3;
 			}
-
+			if (GetAsyncKeyState(VK_RBUTTON)) {
+				WriteChar1(POS.X/2, POS.Y);
+				printf("  ");
+				nSpace[POS.Y ][POS.X/2] = 0; //MOUSE_EVENT_RECORD;
+			}
+			if (GetAsyncKeyState(VK_SPACE) ){
+				enddrawmap = 1;
+				for (int i = 0; i < 35; i++) {
+			
+   						strcpy_s(nSpace_draw[i],nSpace[i]);
+				
+				}
+				
+			}
+		}
 	}
+
 }
 #endif
 //选择地图
@@ -128,11 +152,17 @@ void select_mode() {
 		switch (nStart)
 		{
 		case 1: {
-			system("CLS"); backgroudFile(); putMap();
+			system("CLS"); start_animation(); backgroudFile(); putMap(); map_decide = 1;
 		}break;
 		case 2: {
-			system("CLS"); map_B(); putMap();
+			system("CLS"); start_animation(); map_B(); putMap(); map_decide = 1;
 		}break;
+		case 3: {
+			system("CLS"); start_animation(); 
+			drawmap();// 
+			//map_decide = 2;
+		}break;
+		case 4:readmap(); break;
 		default:
 			break;
 		}
@@ -142,6 +172,14 @@ void select_mode() {
 #endif
 
 #if 0
+//void MOUSE_COORD() {
+	//while (1) {
+	//	POINT pt;
+	//	//HWND Set
+	//	GetCursorPos(&pt);
+	//	//ScreenToClient()
+	//	//ClientToScreen(HWND)
+	//	SetCursorPos(pt.x, pt.y);
 char nSpace[25][90] = { 0 };
 for (int i = 4; i < 24; i++) {
 	for (int j = 0; j < 90; j++) {

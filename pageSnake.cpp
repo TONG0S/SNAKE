@@ -14,7 +14,88 @@
 #include "fileInfo.h"
 using std::cout;
 using std::endl;
+void start_animation1() {
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("                                                                *********                                                  *********                          \n");
+	printf("                                                             **           **                                            **           **                       \n");
+	printf("                                                          **                **                                       **                **                       \n");
+	printf("                                                        **                   **                                     **                   **                       \n");
+	printf("                                                       **                     **                                   **                     **                       \n");
+	printf("                                                       **                   **                                                          **                       \n");
+	printf("                                                         **                                                                           **                                       \n");
+	printf("                                                           **                                                                      **                                       \n");
+	printf("                                                              **                                                              **                                       \n");
+	printf("                                                                **                                                               **                                       \n");
+	printf("                                              **                  **                                                               **                                       \n");
+	printf("                                             **                    **                                                                **                                       \n");
+	printf("                                               **                 **                                               **                 **                                       \n");
+	printf("                                                **             **                                                    **             **                                       \n");
+	printf("                                                   **       **                                                         **        **                                       \n");
+	printf("                                                      ******                                                             ******                                       \n");
+}
+void start_animation2() {
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("                                                            *********                                                  *********                          \n");
+	printf("                                                         **           **                                            **           **                       \n");
+	printf("                                                      **                **                                       **                **                       \n");
+	printf("                                                    **                   **                                     **                   **                       \n");
+	printf("                                                   **                     **                                   **                     **                       \n");
+	printf("                                                   **                   **                                                            **                       \n");
+	printf("                                                     **                                                                             **                                       \n");
+	printf("                                                       **                                                                         **                                       \n");
+	printf("                                                          **                                                                   **                                       \n");
+	printf("                                                            **                                                              **                                       \n");
+	printf("                                          **                  **                                                         **                                       \n");
+	printf("                                         **                    **                                                    **                                       \n");
+	printf("                                           **                 **                                                  **                                                       \n");
+	printf("                                            **             **                                                   **                                                   \n");
+	printf("                                               **       **                                                   **                                              \n");
+	printf("                                                  ******                                                    ********************************                                       \n");
+}
+void start_animation3() {
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("\n");
+	printf("                                                          *********                                                    *******                          \n");
+	printf("                                                       **           **                                                    ***                      \n");
+	printf("                                                    **                **                                                  **                       \n");
+	printf("                                                  **                   **                                                 **                       \n");
+	printf("                                                 **                     **                                                **                       \n");
+	printf("                                                 **                   **                                                  **                       \n");
+	printf("                                                   **                                                                     **                                       \n");
+	printf("                                                     **                                                                   **                                       \n");
+	printf("                                                        **                                                                **                                       \n");
+	printf("                                                          **                                                              **                                       \n");
+	printf("                                        **                  **                                                            **                                       \n");
+	printf("                                       **                    **                                                           **                                       \n");
+	printf("                                         **                 **                                                            **                                       \n");
+	printf("                                          **             **                                                               **                                       \n");
+	printf("                                             **       **                                                                  **                                       \n");
+	printf("                                                ******                                                               **********                                      \n");
+}
+void start_animation() {
+	start_animation1();
+	Sleep(1000);
+	system("CLS");
+	start_animation2();
+	Sleep(1000);
+	system("CLS");
+	start_animation3();
+	Sleep(1000);
+	system("CLS");
 
+	
+}
 //注册页面
 void index() {
 	printf(" \033[36m\033[1m                                                   ***************************************************\n");
@@ -40,6 +121,7 @@ void index() {
 	printf("账户：");
 	WriteChar(32, 20);
 	printf("密码：");
+	
 }
 //开始页面
 void gamestart() 

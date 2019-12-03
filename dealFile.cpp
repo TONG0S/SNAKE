@@ -14,14 +14,26 @@ void judge() {                      //判断
 int  judge_wall() {
 	int n_x = nSnake_coord[0].x;
 	int n_y = nSnake_coord[0].y;
-	if ((nSpace[n_y][n_x] == 5) || (nSpace[n_y][n_x] == 4)|| (nSpace[n_y][n_x] == 3)) {
-
+	//switch (map_decide) {
+	//case 1: {
+		
+	if ((nSpace[n_y][n_x] == 5) || (nSpace[n_y][n_x] == 4) || (nSpace[n_y][n_x] == 3)) {
 		e = false;
 		system("CLS");
 		gameover_fun();             //跳转游戏结束页面
 		return 1;
-
 	}
+	//	}}break;
+	////case 2: {
+	//		if ((nSpace_draw[n_y][n_x] == 5) || (nSpace_draw[n_y][n_x] == 4) || (nSpace_draw[n_y][n_x] == 3)) {
+	//			e = false;
+	//			system("CLS");
+	//			gameover_fun();             //跳转游戏结束页面
+	//			return 1;
+	//		}
+	//}}break;
+
+
 	//判断头和身体重合
 	for (int j = 1; j < Lenght; j++) {
 		if ((nSnake_coord[0].x == nSnake_coord[j].x) && (nSnake_coord[0].y == nSnake_coord[j].y)) {
@@ -40,7 +52,13 @@ void eat_food() {
 	if ((nSnake_coord[0].x == food.x) && (nSnake_coord[0].y == food.y)) {
 		Lenght += 1;
 		score += 10;
-
+		if (score % 100 == 0 && score > 0) {
+			WriteChar(10, 10);
+			std::cout << "恭喜你升级了";
+			Sleep(1000);
+			WriteChar(10, 10);
+			std::cout << "              ";
+		}
 		food_coordinate();
 		nSnake_coord[Lenght - 1] = nSnake_coord[Lenght - 2];
 	}

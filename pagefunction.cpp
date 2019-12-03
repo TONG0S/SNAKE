@@ -19,7 +19,7 @@ void Snakefont() {
 	cout << "分数：";
 	WriteChar(2, 14);
 	cout << "LEVEL";
-	WriteChar(58, 10);
+	WriteChar(60, 8);
 	cout << "排行榜";
 	WriteChar(30, 3);
 	cout << "贪吃蛇";
@@ -47,7 +47,9 @@ void SnakeSpeed() {
 		Sleep(speed);
 	}
 	if (level == 2) {
+	
 		Sleep(speed - 50);
+		                 
 	}	
 	if (level ==3) {
 		Sleep(speed - 100);
@@ -88,13 +90,17 @@ void gameover_fun() {
 
 //排行
 void rank() {
-	read_game();
+	
 	
 	for (int i = 0,j = 12; (i < g_gamenum)&&(j < 20); i++,j++) {
-		printf("\033[34m\033[1m");
-		WriteChar(62, j);
+		printf("\033[33m\033[1m");
+		WriteChar(63, j);
 		cout << g_gameLog[i].score;
-		WriteChar(56, j);
+		printf("\033[33m\033[1m");
+		WriteChar(57, j);
+		cout << i + 1;
+		printf("\033[36m\033[1m");
+		WriteChar(59, j);
 		cout << g_gameLog[i].chAccount;
 	}
 }

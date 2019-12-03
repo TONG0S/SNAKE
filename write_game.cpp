@@ -57,6 +57,7 @@ void write_game() {
 		fprintf(fpFile, "%s\n", g_gameLog[i].chAccount);
 	}
 		
+		free(g_gameLog);
 	fclose(fpFile);
 }
 
@@ -78,6 +79,7 @@ void read_game() {
 			fscanf_s(fpFile, "%s\n", g_gameLog[i].chAccount, 30);
 
 		}
+		
 		fclose(fpFile);
 	}
 
