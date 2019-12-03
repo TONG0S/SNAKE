@@ -1,3 +1,8 @@
+/*
+
+*  windows控制台编程
+
+*/
 #include <iostream>
 #include "windows.h"
 #include "conio.h"
@@ -17,6 +22,10 @@ void putSet() {
 	PlaySoundA("Mermaid_MiyanoMamoru.wav", NULL, SND_ASYNC | SND_NODEFAULT);
 
 }
+//事件
+void things() {
+	
+}
 // 隐藏光标 windows.h
 		void hide()
 	{
@@ -29,15 +38,26 @@ void putSet() {
 			CONSOLE_CURSOR_INFO cursor_info = { 6,1 };
 			SetConsoleCursorInfo(hStd, &cursor_info);
 		}
+		//void WriteChar2(int x, int y,const char* pStr)
+		//{
+
+		//	//获取一个输出句柄
+		//	COORD stcPos = { x*2,y };
+		//	//设置控制台光标位置
+		//	SetConsoleCursorPosition(hStd, stcPos);
+		//	//输出字符串
+		//	
+		//	std::cout << pStr;
+		//}
 		void WriteChar(int x, int y)
 		{
 
 			//获取一个输出句柄
-			COORD stcPos = { x*2,y };
+			COORD stcPos = { x * 2,y };
 			//设置控制台光标位置
 			SetConsoleCursorPosition(hStd, stcPos);
 			//输出字符串
-
+	
 		}
 		//判断是否按下，并以无回显的方式获取一个按键
 		char GetOper()
@@ -45,5 +65,15 @@ void putSet() {
 			if (_kbhit())
 			{
 				return _getch();
+			}
+		}
+		void pause_game() {
+			if(GetAsyncKeyState(VK_SPACE)){
+				WriteChar(35, 35);
+				std::cout << "暂停";
+				system("pause");
+				WriteChar(35, 35);
+				std::cout << "                     ";
+			
 			}
 		}

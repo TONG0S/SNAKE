@@ -5,19 +5,18 @@
 #include "fileInfo.h"
 using std::cout;
 using std::endl;
-//蛇的长度与坐标，蛇头位置单独拿出。方便方向定位
-void nSnake_height() {
 
+//蛇的长度与坐标，蛇头位置单独拿出。方便方向定位
+void nSnake_height()
+{
 	nSnake_coord[0].x = x;
 	nSnake_coord[0].y = y;
 	WriteChar(nSnake_coord[0].x, nSnake_coord[0].y);
 	//WORD color : blue;
-	cout << "\033[33m◆\033[33m";
+	cout << "\033[33m◆\033[33m";                //蛇头
 	for (int i = 1; i < Lenght; i++)
 	{
-
-
 		WriteChar(nSnake_coord[i].x, nSnake_coord[i].y);
-		cout << "\033[32m●\033[32m";
+		cout << "\033[32m●\033[32m";           //蛇身
 	}
 }

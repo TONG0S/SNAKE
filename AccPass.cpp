@@ -11,6 +11,7 @@ int nTemp = 0;
 int decide = 0;
 
 //从文件读入页面
+
 void read_Account() {
 	FILE *fpFile = NULL;
 	int Error = fopen_s(&fpFile, "accout_pass.txt", "rb+");
@@ -53,22 +54,27 @@ void log_in() {
 	free(g_Log);
 	g_Log = Temp_log;
 }
-	WriteChar(34, 18);
+	WriteChar(36, 18);
 	scanf_s("%s", g_Log[g_num].chName, 30);
-	WriteChar(34, 20);
+	WriteChar(36, 20);
 	scanf_s("%s", g_Log[g_num].chPassword, 30);
 	g_num++;
+	WriteChar(36, 27);
+	printf("注册成功！！！");
+	Sleep(600);
 }
-void Account() {
-
+void Account() 
+{
 	int nAcc = 1;
 	int nWord = 1;
-	
-	WriteChar(34, 18);
+	//char bufAcc[30] = { 0 };
+	char bufWord[30] = { 0 };
+
+	WriteChar(36, 18);
 	scanf_s("%s", bufAcc, 30);
-	WriteChar(34, 20);
+	WriteChar(36, 20);
 	scanf_s("%s", bufWord, 30);
-	WriteChar(34, 27);
+	WriteChar(36, 27);
 	for (int i = 0; i < g_num; i++) {
 		nAcc = strcmp(bufAcc, g_Log[i].chName);
 		nWord = strcmp(bufWord, g_Log[i].chPassword);
@@ -99,7 +105,7 @@ void dealAcc() {
 	read_Account();
 	while (decide!=1) {
 		index();
-		WriteChar(30, 16);
+		WriteChar(32, 16);
 		printf("请输入：");
 		scanf_s("%d", &nTemp);
 		printf("\n");

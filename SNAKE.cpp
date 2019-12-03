@@ -1,7 +1,10 @@
-﻿// SNAKE.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+﻿/*
 
-#include "pch.h"
+*  主页面，main函数所在
+
+*/
+
+
 #include <iostream>
 #include "windows.h"
 #include "conio.h"
@@ -10,19 +13,87 @@
 #include "fileInfo.h"
 using std::cout;
 using std::endl;
-//全局调用的
+
 
 #if 1
+void start_game() {
+	for (int i = 0; i < Lenght; i++) {
+			nSnake_coord[i].x = 0;
+			nSnake_coord[i].y = 0;
+	}
+	e = true;                       //重新开始的初始化
+	level = 1;
+	score = 0;
+	char cOper = 0;                //方向
+	Lenght = 3;                    //蛇的初始长度
+	x = 20;
+	y = 20;
+	for (int i = 1; i < Lenght; i++)
+	{
+		nSnake_coord[i].x = x + i;
+		nSnake_coord[i].y = y;
 
-//class scoreSnake {
-//public:
-//	scoreSnake() {
-//		
-//	}
-//
+	}
+	int nDir = UP;
+	gamestart();            //规则界面1
+	system("pause");
+	system("CLS");
+	gamestart1();           //规则界面1
+	system("pause");
+	system("CLS");
+	select_mode();         //地图选择界面
+	Snakefont();
 
-//int score;
-//};
+	rank();
+	WriteChar(5, 36);
+	system("pause");
+	
+	//PROPS();三种道具
+	food_coordinate();
+	props_accelerate();
+	props_decelerate();
+	
+	while (e) {
+		
+		nSnake_height();
+		judge();                //判断吃东西
+		Snakescore();           //分数函数
+		SnakeLevel();           //等级函数
+		cOper = GetOper();
+		switch (cOper) {
+		case 'W':
+		case 'w': {
+			nDir = UP;
+		}break;
+		case 'S':
+		case 's': {
+			nDir = DOWN;
+		}break;
+		case 'A':
+		case 'a': {
+			nDir = LEFT;
+		}break;
+		case 'D':
+		case 'd': {
+			nDir = RIGHT;
+		}
+		}
+		WriteChar(nSnake_coord[Lenght - 1].x, nSnake_coord[Lenght - 1].y);
+		cout << "  ";
+		switch (nDir) {
+		case UP:    y--;       break;
+		case DOWN:  y++; break;
+		case RIGHT: x++; break;
+		case LEFT:  x--; break;
+		}
+		for (int i = Lenght - 1; i > 0; i--) {
+			nSnake_coord[i] = nSnake_coord[i - 1];
+		}
+		SnakeSpeed();
+		level = score / 100 + 1;
+		pause_game();          //暂停按键
+	}
+}
 #endif
 
 int main()
@@ -31,14 +102,9 @@ int main()
 	putSet();             //背景音乐
 	dealAcc();            //登录注册
 	system("CLS");
-	system("CLS");
+	hide();         //隐藏光标
 	//int j = 1;;
-	for (int i = 1; i < Lenght; i++)
-	{
-		nSnake_coord[i].x = x+i;
-		nSnake_coord[i].y = y;
-
-	}
+	
 	start_game();
 	
 	

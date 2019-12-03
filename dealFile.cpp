@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include <iostream>
 #include "windows.h"
 #include "conio.h"
@@ -6,10 +6,11 @@
 #include "fileInfo.h"
 
 #if 1
-void judge() {                   //判断
+void judge() {                      //判断
 	judge_wall();
 	eat_food();
 }
+//撞墙结束游戏
 int  judge_wall() {
 	int n_x = nSnake_coord[0].x;
 	int n_y = nSnake_coord[0].y;
@@ -17,11 +18,11 @@ int  judge_wall() {
 
 		e = false;
 		system("CLS");
-		gameover_fun();
+		gameover_fun();             //跳转游戏结束页面
 		return 1;
 
 	}
-	//判断头
+	//判断头和身体重合
 	for (int j = 1; j < Lenght; j++) {
 		if ((nSnake_coord[0].x == nSnake_coord[j].x) && (nSnake_coord[0].y == nSnake_coord[j].y)) {
 			e = false;
@@ -34,6 +35,7 @@ int  judge_wall() {
 	}
 	return 0;
 }
+//吃东西
 void eat_food() {
 	if ((nSnake_coord[0].x == food.x) && (nSnake_coord[0].y == food.y)) {
 		Lenght += 1;
@@ -41,6 +43,20 @@ void eat_food() {
 
 		food_coordinate();
 		nSnake_coord[Lenght - 1] = nSnake_coord[Lenght - 2];
+	}
+	if((nSnake_coord[0].x == food_accelerate.x) && (nSnake_coord[0].y == food_accelerate.y)) {
+		speed -= 20;
+		if (speed < 0) {
+			gameover_fun();
+		}
+		props_accelerate();
+		
+	 }
+	if ((nSnake_coord[0].x == food_decelerate.x) && (nSnake_coord[0].y == food_decelerate.y)) {
+		speed += 20;
+
+		props_decelerate();
+
 	}
 }
 #endif

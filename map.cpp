@@ -2,7 +2,7 @@
 #include "data.h"
 #include <iostream>
 #include "fileInfo.h"
-#include "Snake_map.h"
+
 #include <windows.h>
 
 //背景30*60
@@ -17,39 +17,22 @@ void backgroudFile() {
 			}
 			//
 		}
-}
+	}
 	for (int i = 0; i < 35; i++) {
 		for (int j = 0; j < 70; j++) {
-					if ((j == 0 && i != 0)  || (j == 69 && i != 0)) {
-					nSpace[i][j] = 4;
+			if ((j == 0 && i != 0) || (j == 69 && i != 0)) {
+				nSpace[i][j] = 4;
 			}
 		}
 	}
-	for (int i = 5; i < 35; i++) {
+	for (int i = 6; i < 34; i++) {
 		for (int j = 0; j < 70; j++) {
 			if ((j == 9 && i != 0) || (j == 54 && i != 0)) {
 				nSpace[i][j] = 4;
 			}
 		}
 	}
-	
-//	for (int i = 0; i < 10; i++) {
-//		nSpace[i][0] = 4;
-//			nSpace[i][40] = 4;
-//	}
-	/*for (int j = 0; j <50; j++) {
-		nSpace[0][j] = 5;
-		nSpace[34][j] = 5;
-		nSpace[9][j] = 5;
-	       }
-			for (int i = 1; i <34; i++) {
-			nSpace[i][0] = 4;
-			nSpace[i][97] = 4;
-		*///	nSpace[i][80] = 4;
-		//	nSpace[i][109] = 4;
-	   	         }
-	
-   
+}
 void WriteChar1(int x, int y)
 {
 	HANDLE hStd = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -61,15 +44,15 @@ void WriteChar1(int x, int y)
 
 }
 
-void putMap() {
+void putMap(){
 	for (int j = 0; j < 35; j++) {
 		for (int i = 0; i < 70; i++) {
 			WriteChar1( i,j);
 			switch (nSpace[j][i]) {
 			case 0:printf("  "); break;
-			case 5:printf("\033[34m█\033[1m "); break;
-			case 4:printf("\033[35m█"); break;
-			case 3:printf("¤"); break;
+			case 5:printf("\033[34m\033[1m█ "); break;
+			case 4:printf("\033[36m\033[1m█"); break;
+			case 3:printf("\033[31m\033[1m¤"); break;
 			}
 		}
 		//printf("\n");
@@ -80,6 +63,7 @@ void putMap() {
 
 #endif	
 #if 1
+//简单地图
 void map_B() {
 	backgroudFile();
 	for (int i = 13; i < 18; i++) {
@@ -102,16 +86,45 @@ void map_B() {
 		nSpace[23][j] = 3;
 		nSpace[28][j] = 3;
 	}
-	
-	
-	
 }
+#if 0
+//自定义地图
+void drawmap() {
+	COORD pos;    //存储鼠标位置
+	DWORD dwread;//存储读取记录
+	
+	INPUT_RECORD ir;
+	HANDLE hstdin = GetStdHandle(STD_INPUT_HANDLE);//获取标准输出句柄
+	int enddrawmap = 0;
+	while (enddrawmap != 1) {
+		ReadConsoleInput(hstdin, &ir, 1, &dwread);
+		pos = ir.Event.MouseEvent.dwMousePosition;
+		if(ir.EventType==MOUSE_EVENT){
+			VOID MouseEventProc(MOUSE_EVENT_RECORD mer){
+				switch (mer.dwEventFlags) {
+
+					if (mer.Event.MouseEvent)
+
+				}
+			}
+
+	}
+}
+#endif
+//选择地图
 void select_mode() {
+	system("CLS");
 	levelpage();
+	
 		int nStart = 0;
-		WriteChar(50, 10);
+		WriteChar(20, 10);
 		printf("请输入：");
 		scanf_s("%d", &nStart);
+		for (int i = 0; i < 30; i++) {
+			for (int j = 0; j < 150; j++) {
+				nSpace[i][j] = 0;
+			}
+		}
 		switch (nStart)
 		{
 		case 1: {
