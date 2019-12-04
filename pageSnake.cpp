@@ -14,6 +14,9 @@
 #include "fileInfo.h"
 using std::cout;
 using std::endl;
+void logo() {
+	printf("\33\n");
+}
 void start_animation1() {
 	printf("\n");
 	printf("\n");
@@ -177,6 +180,7 @@ void levelpage()
 	printf("                                                          1. 容易                            \n");
 	printf("                                                          2. 简单                            \n");
 	printf("                                                          3. 娱乐                            \n");
+	printf("                                                          4. 读取地图                           \n");
 	printf("                                                                                                \n");
 
 }

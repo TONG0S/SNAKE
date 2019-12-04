@@ -67,22 +67,27 @@ void SnakeSpeed() {
 void gameover_fun() {
 	int button = 0;
 	write_game();
-	gameover();
-	WriteChar(10, 50);
 	
-	while (1) {
+	int game_decide = 0;
+	while (game_decide != 1) {
+		system("CLS");
+		gameover();
+		button = 0;
+		WriteChar(10, 50);
 		printf("请输入：");
 		scanf_s("%d", &button);
 		switch (button)
 		{
 		case 1: {
-			system("CLS"); start_game();
+			system("CLS"); start_game(); game_decide = 1;
 		}break;
-		case 2:exit(1); system("E:\ruanjian\daima\vs\C_preject\procedure\SNAKE\Debug\SNAKE.exe -t -f");
-		default:
-			printf("\033[35m\033[1m输入错误，请重新输入！\033[36m\033[1m\n");
-			break;
+		case 2: {
+			exit(1); system("E:\ruanjian\daima\vs\C_preject\procedure\SNAKE\Debug\SNAKE.exe -t -f");
+			game_decide = 1;
 		}
+	
+		}
+
 	}
 
 }

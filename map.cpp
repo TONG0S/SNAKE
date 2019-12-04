@@ -5,9 +5,9 @@
 
 #include <windows.h>
 
-//背景30*60
-char nSpace[35][150] = { 0 };
-char nSpace_draw[35][150] = { 0 };
+//地图
+int nSpace[40][150] = { 0 };
+//int nSpace_draw[40][150] = { 0 };
 void backgroudFile() {
 #if 1
 	nSpace[0][0] = 5;
@@ -89,19 +89,74 @@ void map_B() {
 	}
 }
 #if 1
+void writemap() {
+	FILE *fpFile = NULL;
+	int Error = fopen_s(&fpFile, "map.txt", "w+");
+	if (Error != 0) {
+		printf("出错");
+	}
+	for (int i = 0; i < 40; i++) {
+		for (int j = 0; j < 150; j++) {
+		
+			fprintf(fpFile, "%d\t", nSpace[i][j]);
+		}
+		fprintf(fpFile, "\n");
+	}
+
+	fclose(fpFile);
+}
+
+void readmap() {
+	FILE *fpFile = NULL;
+	int Error = fopen_s(&fpFile, "map.txt", "r+");
+	if (Error != 0) {
+		printf("暂时没有保存的地图，请去娱乐模式画一下吧!!!");
+	}
+	else {
+		for (int i = 0; i < 40; i++) {
+			memset(nSpace[i], 0, 150 * sizeof(int));
+		}
+		for (int i = 0; i < 40; i++) {
+			for (int j = 0; j < 150; j++) {
+				fscanf_s(fpFile, "%d\t", &nSpace[i][j]);
+
+			}
+			fscanf_s(fpFile, "\n");
+		}
+	}
+	fclose(fpFile);
+}
 //自定义地图
 void drawmap() {
-
 	HANDLE hstdin = GetStdHandle(STD_INPUT_HANDLE);//获取标准输入句柄
 
+	for (int i = 0; i < 40; i++) {
+		for (int j = 0; j < 150; j++) {
+			nSpace[i][j] = 0;
+		}
+	}
+	//backgroudFile();
+	//putMap();
+	int enddrawmap = 0;                              //循环结束判断变量
+	WriteChar(1, 0);
+	printf(" \033[33m\033[1m左键点击开始画图");
+	WriteChar(1, 2);
+	printf("\033[33m\033[1m左键单击             \033[31m\033[1m¤");
+	WriteChar(1, 3);
+	printf("\033[33m\033[1m左键 加 CTRL         \033[36m\033[1m█");
+	WriteChar(1,4);
+	printf("\033[33m\033[1m左键单 加 SHIFT      \033[34m\033[1m█");
+	WriteChar(1,6);
+	printf("\033[33m\033[1m右键点击取消图案");
+	WriteChar(1, 8);
+	printf("\033[33m\033[1m空格键停止画图");
+	system("pause");
+	system("CLS");
 	INPUT_RECORD ir = { 0 };                               // MOUSE_EVENT_RECORD所在的结构体
 	DWORD dwRead = 0;                                  //存储读取记录
 	COORD POS;
 	SetConsoleMode(hstdin, ENABLE_WINDOW_INPUT | ENABLE_MOUSE_INPUT);
 
-	//backgroudFile();
-	//putMap();
-	int enddrawmap = 0;                              //循环结束判断变量
 	while (enddrawmap != 1) {
 		ReadConsoleInput(hstdin, &ir, 1, &dwRead);
 		POS = ir.Event.MouseEvent.dwMousePosition;
@@ -112,39 +167,71 @@ void drawmap() {
 		//	posy = y;
 
 			if (GetAsyncKeyState(VK_LBUTTON)) {
-				WriteChar1(POS.X/2, POS.Y);
+				WriteChar1(POS.X / 2, POS.Y);
 				printf("\033[31m\033[1m¤");
-				nSpace[POS.Y][POS.X/2] = 3;
+				nSpace[POS.Y][POS.X / 2] = 3;
+				//std::cout<<POS.Y<<"  "<<POS.X/2;
 			}
 			if (GetAsyncKeyState(VK_RBUTTON)) {
-				WriteChar1(POS.X/2, POS.Y);
+				WriteChar1(POS.X / 2, POS.Y);
 				printf("  ");
-				nSpace[POS.Y ][POS.X/2] = 0; //MOUSE_EVENT_RECORD;
+				nSpace[POS.Y][POS.X / 2] = 0; //MOUSE_EVENT_RECORD;
 			}
-			if (GetAsyncKeyState(VK_SPACE) ){
-				enddrawmap = 1;
-				for (int i = 0; i < 35; i++) {
-			
-   						strcpy_s(nSpace_draw[i],nSpace[i]);
+			if (GetAsyncKeyState(VK_CONTROL)) {
+				WriteChar1(POS.X / 2, POS.Y);
+				printf("\033[36m\033[1m█");
+				nSpace[POS.Y][POS.X / 2] = 4;
 				
-				}
-				
+			}
+			if (GetAsyncKeyState(VK_SHIFT)) {
+				WriteChar1(POS.X / 2, POS.Y);
+				printf("\033[34m\033[1m█");
+				nSpace[POS.Y][POS.X / 2] = 5;
+
 			}
 		}
+ 			if (ir.EventType == KEY_EVENT) {
+				if (GetAsyncKeyState(VK_SPACE)) {
+					enddrawmap = 1;
+					//for (int i = 0; i < 40; i++) {
+					//	for (int j = 0; j < 150; j++) {
+						//	int buf = 0;
+						//	nSpace_draw[i][j] = nSpace[i][j];
+							//nSpace[i][j]=
+							//strcpy_s(nSpace_draw[i], nSpace[i]);
+						//}
+				//	}
+				}
+			
+				
+			
+		}
 	}
+	writemap();
+	enddrawmap = 0;
 
 }
 #endif
+
 //选择地图
+
 void select_mode() {
-	system("CLS");
-	levelpage();
+	hide();
+	map_decide = 0;
+	for (int i = 0; i < 40; i++) {
+		memset(nSpace[i], 0, 150 * sizeof(int));
+	}
+	//nSpace[40][150] = { 0 };
+	while (map_decide != 1) {
 	
+		system("CLS");
+		levelpage();
+
 		int nStart = 0;
-		WriteChar(20, 10);
+		WriteChar(20, 12);
 		printf("请输入：");
 		scanf_s("%d", &nStart);
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 40; i++) {
 			for (int j = 0; j < 150; j++) {
 				nSpace[i][j] = 0;
 			}
@@ -152,20 +239,39 @@ void select_mode() {
 		switch (nStart)
 		{
 		case 1: {
-			system("CLS"); start_animation(); backgroudFile(); putMap(); map_decide = 1;
+			system("CLS"); 
+			start_animation(); 
+			backgroudFile();
+			putMap();
+			map_decide = 1;
 		}break;
 		case 2: {
-			system("CLS"); start_animation(); map_B(); putMap(); map_decide = 1;
+			system("CLS");
+			start_animation();
+			map_B(); 
+			putMap();
+			map_decide = 1;
 		}break;
 		case 3: {
-			system("CLS"); start_animation(); 
-			drawmap();// 
-			//map_decide = 2;
+			system("CLS");
+			start_animation();
+			drawmap();
+			map_decide = 1;// 
+			
 		}break;
-		case 4:readmap(); break;
+		case 4: {
+			readmap();
+			//for (int i = 0; i < 35; i++) {
+				//strcpy_s(nSpace[i], nSpace_draw[i]);
+		//	}
+			putMap();
+			map_decide = 1;
+		}break;
 		default:
 			break;
 		}
+		nStart = 0;
+	}
 	}
 
 

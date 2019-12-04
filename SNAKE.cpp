@@ -116,23 +116,10 @@ int main()
 	
 */
 
-	//while (1)
-	//{
-	//	if (_kbhit())
-	//	{
-
-	//	}
-
-
-	//}
-
-	//int nLive = 1;
-	
 	putSet();             //背景音乐
 	dealAcc();            //登录注册
 	system("CLS");
 	hide();         //隐藏光标
-	//int j = 1;;
 	
 	start_game();
 	system("pause");

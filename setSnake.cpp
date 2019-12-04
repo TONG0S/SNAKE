@@ -19,19 +19,19 @@ HANDLE hStd = GetStdHandle(STD_OUTPUT_HANDLE);
 void putSet() {
 	system("title snake");
 	system("color 0F");
-	system("mode con cols=170 lines=40");
+	system("mode con cols=150 lines=40");
 	keybd_event(VK_SHIFT, 0, 0, 0);
 	Sleep(100);
 	keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, 0);
 	PlaySoundA("Mermaid_MiyanoMamoru.wav", NULL, SND_ASYNC | SND_NODEFAULT);
-	//int nSelect = MessageBox(NULL, TEXT("开始贪吃蛇小游戏"), TEXT("贪吃蛇"), MB_OKCANCEL);
-	//if (nSelect == IDOK) {
-	//	MessageBox(NULL, TEXT("即将开始游戏"), TEXT("提示"), MB_OK);
-	//}
-	//else {
-	//	MessageBox(NULL, TEXT("关闭游戏"), TEXT("提示"), MB_OK);
-	//	exit(1); system("E:\ruanjian\daima\vs\C_preject\procedure\SNAKE\Debug\SNAKE.exe -t -f");
-	//}
+	int nSelect = MessageBox(NULL, TEXT("开始贪吃蛇小游戏"), TEXT("贪吃蛇"), MB_OKCANCEL);
+	if (nSelect == IDOK) {
+		MessageBox(NULL, TEXT("即将开始游戏"), TEXT("提示"), MB_OK);
+	}
+	else {
+		MessageBox(NULL, TEXT("关闭游戏"), TEXT("提示"), MB_OK);
+		exit(1); system("E:\ruanjian\daima\vs\C_preject\procedure\SNAKE\Debug\SNAKE.exe -t -f");
+	}
 
 }
 
