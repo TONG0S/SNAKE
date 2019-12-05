@@ -13,6 +13,7 @@ void Mouse_info();
 void hideput();
 char GetOper();
 void pause_game();//ÔÝÍ£
+void exit_game(); //ÍË³ö
 
 /*    Ò³Ãæ    */
 

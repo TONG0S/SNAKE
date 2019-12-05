@@ -4,6 +4,8 @@
 #include "conio.h"
 #include "data.h"
 #include "fileInfo.h"
+#include <mmsystem.h>
+#pragma comment(lib,"winmm.lib")
 
 #if 1
 void judge() {                      //ÅÐ¶Ï
@@ -52,13 +54,25 @@ void eat_food() {
 	if ((nSnake_coord[0].x == food.x) && (nSnake_coord[0].y == food.y)) {
 		Lenght += 1;
 		score += 10;
-		if (score % 100 == 0 && score > 0) {
+		
+		if (score % 50 == 0 && score > 0) {
+			PlaySoundA("Candy Store.wav", NULL, SND_SYNC);
+			if (score % 100 == 0) {
+
+				PlaySoundA("Mermaid_MiyanoMamoru.wav", NULL, SND_ASYNC | SND_LOOP);
+			}
+
+			else {
+				PlaySoundA("hanazawa.wav", NULL, SND_ASYNC | SND_LOOP);
+			}
 			WriteChar(10, 10);
 			std::cout << "¹§Ï²ÄãÉý¼¶ÁË";
 			Sleep(1000);
 			WriteChar(10, 10);
 			std::cout << "              ";
+		
 		}
+
 		food_coordinate();
 		nSnake_coord[Lenght - 1] = nSnake_coord[Lenght - 2];
 	}

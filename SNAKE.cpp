@@ -96,9 +96,10 @@ void start_game() {
 			nSnake_coord[i] = nSnake_coord[i - 1];
 		}
 		SnakeSpeed();
-		level = score / 100 + 1;
+		level = score / 50 + 1;
 		
 		pause_game();          //暂停按键
+		exit_game();
 	}
 }
 #endif

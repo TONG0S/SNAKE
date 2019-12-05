@@ -104,6 +104,7 @@ void Account()
 void dealAcc() {
 	read_Account();
 	while (decide!=1) {
+		decide = 0;
 		index();
 		WriteChar(32, 16);
 		printf("«Î ‰»Î£∫");

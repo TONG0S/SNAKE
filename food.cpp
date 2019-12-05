@@ -36,19 +36,7 @@ void  food_coordinate()
 				printf("\033[36m\033[1m…e");
 				nfood_num = 0;
 			}
-	//	}
-	//			break;
-	//	case 2: {if ((nSpace_draw[j][i] != 5) && (nSpace_draw[j][i] != 4) && (nSpace_draw[j][i] != 3)) {
-	//		int px = i;
-	//		int py = j;
-	//		food.x = px, food.y = py;
-	//		WriteChar(food.x, food.y);
-	//		printf("\033[36m\033[1m…e");
-	//		nfood_num = 0;
-	//	}
-	//	}break;
-	//	}
-	
+
 	}
 	
 }

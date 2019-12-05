@@ -9,6 +9,7 @@
 #include "data.h"
 #include "time.h"
 #include "fileInfo.h"
+#include <mmsystem.h>
 #pragma comment(lib,"winmm.lib")
 int posx=0;//鼠标坐标
 int posy=0;
@@ -23,7 +24,7 @@ void putSet() {
 	keybd_event(VK_SHIFT, 0, 0, 0);
 	Sleep(100);
 	keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, 0);
-	PlaySoundA("Mermaid_MiyanoMamoru.wav", NULL, SND_ASYNC | SND_NODEFAULT);
+	PlaySoundA("friends.wav", NULL, SND_ASYNC | SND_LOOP);
 	int nSelect = MessageBox(NULL, TEXT("开始贪吃蛇小游戏"), TEXT("贪吃蛇"), MB_OKCANCEL);
 	if (nSelect == IDOK) {
 		MessageBox(NULL, TEXT("即将开始游戏"), TEXT("提示"), MB_OK);
@@ -79,6 +80,12 @@ void putSet() {
 				WriteChar(35, 35);
 				std::cout << "                     ";
 			
+			}
+		}
+		void exit_game() {
+			if (GetAsyncKeyState(VK_F1)) {
+				exit(1);            
+
 			}
 		}
 #if 0

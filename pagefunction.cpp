@@ -8,6 +8,7 @@
 #include "conio.h"
 #include "data.h"
 #include "fileInfo.h"
+#include <mmsystem.h>
 #include "log_in.h"
 using std::cout;
 using std::endl;
@@ -45,11 +46,12 @@ void SnakeLevel() {
 void SnakeSpeed() {
 	if (level == 1) {
 		Sleep(speed);
+	
 	}
 	if (level == 2) {
 	
 		Sleep(speed - 50);
-		                 
+	
 	}	
 	if (level ==3) {
 		Sleep(speed - 100);
@@ -72,6 +74,7 @@ void gameover_fun() {
 	while (game_decide != 1) {
 		system("CLS");
 		gameover();
+		PlaySoundA("ALIVE.wav", NULL, SND_ASYNC | SND_LOOP);
 		button = 0;
 		WriteChar(10, 50);
 		printf("«Î ‰»Î£∫");
@@ -85,8 +88,12 @@ void gameover_fun() {
 			exit(1); system("E:\ruanjian\daima\vs\C_preject\procedure\SNAKE\Debug\SNAKE.exe -t -f");
 			game_decide = 1;
 		}
+		default:
+			button = 0;
+			break;
 	
 		}
+		Sleep(100);
 
 	}
 

@@ -228,7 +228,7 @@ void select_mode() {
 		levelpage();
 
 		int nStart = 0;
-		WriteChar(20, 12);
+		WriteChar(40, 18);
 		printf("«Î ‰»Î£∫");
 		scanf_s("%d", &nStart);
 		for (int i = 0; i < 40; i++) {

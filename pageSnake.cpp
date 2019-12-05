@@ -156,6 +156,8 @@ void gamestart1()
 	printf("                                           规则如下：                          \n");
 	printf("                                                                               \n");
 	printf("                                       空格键暂停                            \n");
+	printf("                                                                         \n");
+	printf("                                       F1退出游戏                            \n");
 	printf("                                                                               \n");
 	printf("                             'w'向上   's'向下   'a'向左  'd'向右                   \n");
 	printf("                                                                               \n");
@@ -168,20 +170,29 @@ void gamestart1()
 	
 	printf("                                                                     \n");
 }
-void levelpage()
+void levelpage()                    
 {
+
 	printf("\033[34m\033[1m\n");
-	printf("                                 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   \n");
-	printf("                                                 即 将 开 始 贪 吃 蛇 游 戏                     \n");
-	printf("                                                                                                \n");
-	printf("                                                                                                \n");
-	printf("                                                         请选择地图                             \n");
-	printf("                                                                                                \n");
-	printf("                                                          1. 容易                            \n");
-	printf("                                                          2. 简单                            \n");
-	printf("                                                          3. 娱乐                            \n");
-	printf("                                                          4. 读取地图                           \n");
-	printf("                                                                                                \n");
+	printf("                                                                                                    \n");
+	printf("            **                                                                                                  \n");
+	printf("           *****                                                                                                 \n");
+	printf("         * @**@ **                                                                                                                  \n");
+	printf("           ***  ***                                           # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   \n");
+	printf("            *     ***                   *                     #                                                             #  \n");
+	printf("                 ***                   **                     #                即 将 开 始 贪 吃 蛇 游 戏                   #  \n");
+	printf("                 ***                  ***                     #                                                             #  \n");
+	printf("               ****           ****** ***  ***                 #                        请选择地图                           #  \n");
+	printf("       	     ****         ******* **** *******                #                                                             #  \n");
+	printf("              ****      *****     ****    ******              #                         1. 容易                             #  \n");
+	printf("              ****      *****    ****     ******              #                         2. 简单                             #  \n");
+	printf("               ****      **********      ******               #                         3. 娱乐                             # \n");
+	printf("                ****                  ******                  #                         4. 读取地图                         #  \n");
+	printf("                  ********   ******  ******                   #                                                             #  \n");
+	printf("                       ***************                        #                                                             #  \n");
+	printf("                                                              # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #   \n");
+	printf("                                                                                                                         \n");
+	printf("                                                                                                        \n");
 
 }
 void gameover() {
