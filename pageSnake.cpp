@@ -86,7 +86,7 @@ void start_animation3() {
 	printf("                                             **       **                                                                  **                                       \n");
 	printf("                                                ******                                                               **********                                      \n");
 }
-void start_animation() {
+void Start_Animation() {
 	start_animation1();
 	Sleep(1000);
 	system("CLS");
@@ -100,7 +100,7 @@ void start_animation() {
 	
 }
 //注册页面
-void index() {
+void Index() {
 	printf(" \033[36m\033[1m                                                   ***************************************************\n");
 	printf("                                                    *                                                 *\n");
 	printf("                                                    *           欢迎来到贪吃蛇游戏                    *\n");
@@ -127,7 +127,7 @@ void index() {
 	
 }
 //开始页面
-void gamestart() 
+void GameStart()
 {
 	printf("                              欢迎来到贪吃蛇游戏                     \n");
 	printf("                                                                     \n");
@@ -146,7 +146,7 @@ void gamestart()
 	printf("                                 4.请不要回头，                        \n");
 	printf("                                                                     \n");
 }
-void gamestart1()
+void GameStart1()
 {
 	printf("                              欢迎来到贪吃蛇游戏                     \n");
 	printf("                                                                     \n");
@@ -195,7 +195,7 @@ void levelpage()
 	printf("                                                                                                        \n");
 
 }
-void gameover() {
+void GameOver() {
 
 	
 	printf("              ****************************************************\n");
@@ -212,7 +212,7 @@ void gameover() {
 	
 	
 }
-void confilm() {
+void ConFilm() {
 	WriteChar(20, 5);
 	std::cout << "是否开始游戏" << std::endl;
 	WriteChar(15, 10);

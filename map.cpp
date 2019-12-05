@@ -7,8 +7,8 @@
 
 //地图
 int nSpace[40][150] = { 0 };
-//int nSpace_draw[40][150] = { 0 };
-void backgroudFile() {
+
+void BackgroudFile() {
 #if 1
 	nSpace[0][0] = 5;
 	for (int i = 0; i < 35; i++) {
@@ -45,7 +45,7 @@ void WriteChar1(int x, int y)
 
 }
 
-void putMap(){
+void PutMap(){
 	for (int j = 0; j < 35; j++) {
 		for (int i = 0; i < 70; i++) {
 			WriteChar1( i,j);
@@ -65,8 +65,8 @@ void putMap(){
 #endif	
 #if 1
 //简单地图
-void map_B() {
-	backgroudFile();
+void Map_B() {
+	BackgroudFile();
 	for (int i = 13; i < 18; i++) {
 		nSpace[i][29] = 3;
 		nSpace[i][44] = 3;
@@ -89,7 +89,7 @@ void map_B() {
 	}
 }
 #if 1
-void writemap() {
+void WriteMap() {
 	FILE *fpFile = NULL;
 	int Error = fopen_s(&fpFile, "map.txt", "w+");
 	if (Error != 0) {
@@ -106,7 +106,7 @@ void writemap() {
 	fclose(fpFile);
 }
 
-void readmap() {
+void ReadMap() {
 	FILE *fpFile = NULL;
 	int Error = fopen_s(&fpFile, "map.txt", "r+");
 	if (Error != 0) {
@@ -207,7 +207,7 @@ void drawmap() {
 			
 		}
 	}
-	writemap();
+	WriteMap();
 	enddrawmap = 0;
 
 }
@@ -215,8 +215,8 @@ void drawmap() {
 
 //选择地图
 
-void select_mode() {
-	hide();
+void Select_Mode() {
+	Hide();
 	map_decide = 0;
 	for (int i = 0; i < 40; i++) {
 		memset(nSpace[i], 0, 150 * sizeof(int));
@@ -240,31 +240,31 @@ void select_mode() {
 		{
 		case 1: {
 			system("CLS"); 
-			start_animation(); 
-			backgroudFile();
-			putMap();
+			Start_Animation();
+			BackgroudFile();
+			PutMap();
 			map_decide = 1;
 		}break;
 		case 2: {
 			system("CLS");
-			start_animation();
-			map_B(); 
-			putMap();
+			Start_Animation();
+			Map_B();
+			PutMap();
 			map_decide = 1;
 		}break;
 		case 3: {
 			system("CLS");
-			start_animation();
+			Start_Animation();
 			drawmap();
 			map_decide = 1;// 
 			
 		}break;
 		case 4: {
-			readmap();
+			ReadMap();
 			//for (int i = 0; i < 35; i++) {
 				//strcpy_s(nSpace[i], nSpace_draw[i]);
 		//	}
-			putMap();
+			PutMap();
 			map_decide = 1;
 		}break;
 		default:

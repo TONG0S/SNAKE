@@ -151,7 +151,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="mapwrite.cpp" />
     <ClInclude Include="data.h" />
     <ClInclude Include="fileInfo.h" />
     <ClInclude Include="log_in.h" />

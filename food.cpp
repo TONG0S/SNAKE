@@ -17,22 +17,21 @@
 //void putfood() {
 //
 //}
-void  food_coordinate()
+void  Food_Coordinate()
 {
-	//food_props();
+	
 	int nfood_num = 1;    //用于判断	
 	
 	while (nfood_num != 0) {
 		srand((unsigned)time(NULL));
 		int i = rand() % (78 / 2) + 14;
 		int j = rand() % (33 / 2) + 16;
-	//	switch (map_decide) {
-	//	case 1: {
+	
 			if ((nSpace[j][i] != 5) && (nSpace[j][i] != 4) && (nSpace[j][i] != 3)) {
-				int px = i;
-				int py = j;
-				food.x = px, food.y = py;
-				WriteChar(food.x, food.y);
+				int posx = i;
+				int posy = j;
+				g_Food.x = posx, g_Food.y = posy;
+				WriteChar(g_Food.x, g_Food.y);
 				printf("\033[36m\033[1m卐");
 				nfood_num = 0;
 			}
@@ -42,7 +41,7 @@ void  food_coordinate()
 }
 
 
-void props_accelerate()
+void Props_Accelerate()
 {
 
 	//int nfood_num = 1;    //用于判断	
@@ -54,11 +53,11 @@ void props_accelerate()
 		int i = rand() % (78 / 2) + 15;
 		int j = rand() % (33 / 2) + 18;
 		if ((nSpace[j][i] != 5) && (nSpace[j][i] != 4) && (nSpace[j][i] != 3)) {
-			if (food_accelerate.x != food.x || food_accelerate.y != food.y) {
+			if (g_Food_Accelerate.x != g_Food.x || g_Food_Accelerate.y != g_Food.y) {
 				int px = i;
 				int py = j;
-				food_accelerate.x = px, food_accelerate.y = py;
-				WriteChar(food_accelerate.x, food_accelerate.y);
+				g_Food_Accelerate.x = px, g_Food_Accelerate.y = py;
+				WriteChar(g_Food_Accelerate.x, g_Food_Accelerate.y);
 				printf("\033[35m\033[1m★");
 
 				nfood_num = 0;
@@ -67,7 +66,7 @@ void props_accelerate()
 	}
 }
 
-void props_decelerate() {
+void Props_Decelerate() {
 
 
 	int nfood_num = 1;    //用于判断	
@@ -76,12 +75,12 @@ void props_decelerate() {
 		int i = rand() % (78 / 2) + 14;
 		int j = rand() % (33 / 2) + 10;
 		if ((nSpace[j][i] != 5) && (nSpace[j][i] != 4) && (nSpace[j][i] != 3)) {
-			if (food_decelerate.x != food.x || food_decelerate.y != food.y) {
-				if ((food_accelerate.x != food_decelerate.x) || (food_accelerate.y != food_decelerate.y)) {
+			if (g_Food_Decelerate.x != g_Food.x || g_Food_Decelerate.y != g_Food.y) {
+				if ((g_Food_Accelerate.x != g_Food_Decelerate.x) || (g_Food_Accelerate.y != g_Food_Decelerate.y)) {
 			/*	int px = i;
 				int py = j;*/
-					food_decelerate.x = i, food_decelerate.y = j;
-					WriteChar(food_decelerate.x, food_decelerate.y);
+					g_Food_Decelerate.x = i, g_Food_Decelerate.y = j;
+					WriteChar(g_Food_Decelerate.x, g_Food_Decelerate.y);
 
 					printf("\033[32m\033[1m★");
 					nfood_num = 0;
@@ -167,17 +166,8 @@ void props_decelerate1() {
 }
 #endif
 void PROPS(){
-	food_coordinate();
-	props_accelerate();
-	props_decelerate();
+	Food_Coordinate();
+	Props_Accelerate();
+	Props_Decelerate();
 }
-#if 0
-void food_coordinate() {
-	srand((unsigned)time(NULL));
-	int i = rand() % (1 + 29);
-	int j = rand() % (1 + 29);
-	food.x = i, food.y = j;
-	WriteChar(food.x, food.y, "a");
-}
-#endif
 

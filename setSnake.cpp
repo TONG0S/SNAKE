@@ -17,7 +17,7 @@ int posy=0;
 HANDLE hStd = GetStdHandle(STD_OUTPUT_HANDLE);
 
 //中文输入及其他设置
-void putSet() {
+void PutSet() {
 	system("title snake");
 	system("color 0F");
 	system("mode con cols=150 lines=40");
@@ -37,20 +37,14 @@ void putSet() {
 }
 
          // 隐藏光标 windows.h
-		void hide()
+		void Hide()
 	{
 		CONSOLE_CURSOR_INFO cursor_info = { 1,0 };
 		SetConsoleCursorInfo(hStd, &cursor_info);
 	}
 
 
-		//显示光标 windows.h
-		void hideput()
-		{
-			CONSOLE_CURSOR_INFO cursor_info = { 6,1 };
-			SetConsoleCursorInfo(hStd, &cursor_info);
-		}
-		
+	
 
 
 		void WriteChar(int x, int y)
@@ -82,7 +76,7 @@ void putSet() {
 			
 			}
 		}
-		void exit_game() {
+		void Exit_Game() {
 			if (GetAsyncKeyState(VK_F1)) {
 				exit(1);            
 

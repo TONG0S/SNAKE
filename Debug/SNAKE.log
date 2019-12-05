@@ -1,7 +1,2 @@
-﻿  pagefunction.cpp
-e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(88): warning C4129: “d”: 不可识别的字符转义序列
-e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(88): warning C4129: “C”: 不可识别的字符转义序列
-e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(88): warning C4129: “p”: 不可识别的字符转义序列
-e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(88): warning C4129: “S”: 不可识别的字符转义序列
-e:\ruanjian\daima\vs\c_preject\snake\snake\pagefunction.cpp(88): warning C4129: “D”: 不可识别的字符转义序列
+﻿  SNAKE.cpp
   SNAKE.vcxproj -> E:\ruanjian\daima\vs\C_preject\SNAKE\Debug\SNAKE.exe

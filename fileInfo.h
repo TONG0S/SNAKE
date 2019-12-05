@@ -2,64 +2,65 @@
 /*    
 存放声明
 */
- extern void start_game();
+ extern void Start_Game();
 
  /*  windows   */
-void putSet();
-void hide();
+void PutSet();
+void Hide();
 void WriteChar(int x, int y);
 void Mouse_info();
 //void WriteChar2(int x, int y, const char* pStr);
-void hideput();
+
 char GetOper();
 void pause_game();//暂停
-void exit_game(); //退出
+void Exit_Game(); //退出
 
 /*    页面    */
 
-void start_animation();
-void index();           //登录注册页面
-void gamestart();
+void Start_Animation();
+void Index();           //登录注册页面
+void GameStart();
 void levelpage();
-void gameover();
-void confilm();
-void gamestart1();
-
-/*功能*/
-void PROPS();     //所有道具
-
-void food_coordinate();
-void props_accelerate();
-void props_decelerate();
-void nSnake_height();
-//void direcion_Snake();      //判断方向
-int  judge_wall();
-void eat_food();
-
-
+void GameOver();
+void ConFilm();
+void GameStart1();
 
 /*页面功能*/
 void Snakescore();
 void SnakeLevel();
 void SnakeSpeed();
-void gameover_fun();          //结束页面的功能
+void  Gameover_Fun();          //结束页面的功能
 //void  SnakeStart();           //开始页面功能
-void  judge();
+void  Judge();
 void  Snakefont();
-void select_mode();
-void rank();
+void Select_Mode();
+void Rank();
+
+/*功能*/
+void PROPS();     //所有道具
+void Food_Coordinate();
+void Props_Accelerate();
+void Props_Decelerate();
+void nSnake_height();
+//void direcion_Snake();      //判断方向
+int  Judge_Wall();
+void Eat_Food();
+
+
+
+
 
 /*注册登录信息*/
-void dealAcc();
+void DealAcc();
 
 
 /*  地图处理  */
-void backgroudFile();
-void putMap();
-void map_B();
-void writemap();
-void readmap();
+void BackgroudFile();
+void PutMap();
+void Map_B();
+void WriteMap();
+void ReadMap();
 
 //存读档
-void write_game();
-void read_game();
+void Write_Game();
+void Read_Game();

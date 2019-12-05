@@ -31,65 +31,65 @@ void Snakefont() {
 void Snakescore() {
 
 	WriteChar(2, 11);
-	cout << score;
+	cout << g_Score;
 }
 
 
 //输出等级
 void SnakeLevel() {
 	WriteChar(2, 16);
-	cout << level;
+	cout << g_Level;
 }
 
 
 //等级提升之后速度处理
 void SnakeSpeed() {
-	if (level == 1) {
-		Sleep(speed);
+	if (g_Level == 1) {
+		Sleep(g_Speed);
 	
 	}
-	if (level == 2) {
+	if (g_Level == 2) {
 	
-		Sleep(speed - 50);
+		Sleep(g_Speed - 50);
 	
 	}	
-	if (level ==3) {
-		Sleep(speed - 100);
+	if (g_Level ==3) {
+		Sleep(g_Speed - 100);
 	}
-	if (level == 4) {
-		Sleep(speed - 150);
+	if (g_Level == 4) {
+		Sleep(g_Speed - 150);
 	}
-	if (level >4) {
-		Sleep(speed - 200);
+	if (g_Level >4) {
+		Sleep(g_Speed - 200);
 	}	
 }
 
 
 //游戏结束
-void gameover_fun() {
-	int button = 0;
-	write_game();
+void Gameover_Fun() {
+	int Tbutton = 0;
+	Write_Game();
 	
 	int game_decide = 0;
 	while (game_decide != 1) {
 		system("CLS");
-		gameover();
+		GameOver();
 		PlaySoundA("ALIVE.wav", NULL, SND_ASYNC | SND_LOOP);
-		button = 0;
+		Tbutton = 0;
 		WriteChar(10, 50);
 		printf("请输入：");
-		scanf_s("%d", &button);
-		switch (button)
+		scanf_s("%d", &Tbutton);
+		switch (Tbutton)
 		{
 		case 1: {
-			system("CLS"); start_game(); game_decide = 1;
+			system("CLS"); Start_Game(); game_decide = 1;
 		}break;
 		case 2: {
-			exit(1); system("E:\ruanjian\daima\vs\C_preject\procedure\SNAKE\Debug\SNAKE.exe -t -f");
+			exit(1);
 			game_decide = 1;
 		}
 		default:
-			button = 0;
+			Tbutton = 0;
 			break;
 	
 		}
@@ -101,13 +101,13 @@ void gameover_fun() {
 
 
 //排行
-void rank() {
+void Rank() {
 	
 	
 	for (int i = 0,j = 12; (i < g_gamenum)&&(j < 20); i++,j++) {
 		printf("\033[33m\033[1m");
 		WriteChar(63, j);
-		cout << g_gameLog[i].score;
+		cout << g_gameLog[i].g_Score;
 		printf("\033[33m\033[1m");
 		WriteChar(57, j);
 		cout << i + 1;

@@ -14,7 +14,7 @@ void nSnake_height()
 	WriteChar(nSnake_coord[0].x, nSnake_coord[0].y);
 	//WORD color : blue;
 	cout << "\033[33m¡ô\033[33m";                //ÉßÍ·
-	for (int i = 1; i < Lenght; i++)
+	for (int i = 1; i < g_Lenght; i++)
 	{
 		WriteChar(nSnake_coord[i].x, nSnake_coord[i].y);
 		cout << "\033[32m¡ñ\033[32m";           //ÉßÉí

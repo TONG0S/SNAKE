@@ -8,12 +8,13 @@
 #pragma comment(lib,"winmm.lib")
 
 #if 1
-void judge() {                      //判断
-	judge_wall();
-	eat_food();
+//判断
+void Judge() {                     
+	Judge_Wall();
+	Eat_Food();
 }
 //撞墙结束游戏
-int  judge_wall() {
+int  Judge_Wall() {
 	int n_x = nSnake_coord[0].x;
 	int n_y = nSnake_coord[0].y;
 	//switch (map_decide) {
@@ -22,27 +23,17 @@ int  judge_wall() {
 	if ((nSpace[n_y][n_x] == 5) || (nSpace[n_y][n_x] == 4) || (nSpace[n_y][n_x] == 3)) {
 		e = false;
 		system("CLS");
-		gameover_fun();             //跳转游戏结束页面
+		Gameover_Fun();             //跳转游戏结束页面
 		return 1;
 	}
-	//	}}break;
-	////case 2: {
-	//		if ((nSpace_draw[n_y][n_x] == 5) || (nSpace_draw[n_y][n_x] == 4) || (nSpace_draw[n_y][n_x] == 3)) {
-	//			e = false;
-	//			system("CLS");
-	//			gameover_fun();             //跳转游戏结束页面
-	//			return 1;
-	//		}
-	//}}break;
-
 
 	//判断头和身体重合
-	for (int j = 1; j < Lenght; j++) {
+	for (int j = 1; j < g_Lenght; j++) {
 		if ((nSnake_coord[0].x == nSnake_coord[j].x) && (nSnake_coord[0].y == nSnake_coord[j].y)) {
 			e = false;
 
 			system("CLS");
-			gameover_fun();
+			Gameover_Fun();
 			return 1;
 		}
 		
@@ -50,14 +41,14 @@ int  judge_wall() {
 	return 0;
 }
 //吃东西
-void eat_food() {
-	if ((nSnake_coord[0].x == food.x) && (nSnake_coord[0].y == food.y)) {
-		Lenght += 1;
-		score += 10;
+void Eat_Food() {
+	if ((nSnake_coord[0].x == g_Food.x) && (nSnake_coord[0].y == g_Food.y)) {
+		g_Lenght += 1;
+		g_Score += 10;
 		
-		if (score % 50 == 0 && score > 0) {
+		if (g_Score % 50 == 0 && g_Score > 0) {
 			PlaySoundA("Candy Store.wav", NULL, SND_SYNC);
-			if (score % 100 == 0) {
+			if (g_Score % 100 == 0) {
 
 				PlaySoundA("Mermaid_MiyanoMamoru.wav", NULL, SND_ASYNC | SND_LOOP);
 			}
@@ -73,50 +64,27 @@ void eat_food() {
 		
 		}
 
-		food_coordinate();
-		nSnake_coord[Lenght - 1] = nSnake_coord[Lenght - 2];
+		Food_Coordinate();
+		nSnake_coord[g_Lenght - 1] = nSnake_coord[g_Lenght - 2];
 	}
-	if((nSnake_coord[0].x == food_accelerate.x) && (nSnake_coord[0].y == food_accelerate.y)) {
-		speed -= 20;
-		if (speed < 0) {
-			gameover_fun();
+	if((nSnake_coord[0].x == g_Food_Accelerate.x) && (nSnake_coord[0].y == g_Food_Accelerate.y)) {
+		g_Speed -= 20;
+		if (g_Speed < 0) {
+			Gameover_Fun();
 		}
-		props_accelerate();
+		Props_Accelerate();
 		
 	 }
-	if ((nSnake_coord[0].x == food_decelerate.x) && (nSnake_coord[0].y == food_decelerate.y)) {
-		speed += 20;
+	if ((nSnake_coord[0].x == g_Food_Decelerate.x) && (nSnake_coord[0].y == g_Food_Decelerate.y)) {
+		g_Speed += 20;
 
-		props_decelerate();
+		Props_Decelerate();
 
 	}
 }
 #endif
 #if 0
 
-	for (int i = 0, j = 1; i < Lenght; i++) {
-		if ((nSnake_coord[i].x == 9) || (nSnake_coord[i].y == 4) || (nSnake_coord[i].x == 69) || (nSnake_coord[i].y == 24)) {
-
-			e = false;
-			system("CLS");
-			gameover();
-			return 1;
-
-		}
-	}
-	for (int  j = 1; j< Lenght; j++) {
-		if ((nSnake_coord[0].x == nSnake_coord[j].x) && (nSnake_coord[0].y == nSnake_coord[j].y)) {
-			e = false;
-			
-			system("CLS");
-			gameover();
-			return 1;
-		}
-	}
-	return 0;
-}
-#endif
-
-#if 1
+	
 
 #endif 

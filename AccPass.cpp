@@ -101,11 +101,11 @@ void Account()
 
 	}
 }
-void dealAcc() {
+void DealAcc() {
 	read_Account();
 	while (decide!=1) {
 		decide = 0;
-		index();
+		Index();
 		WriteChar(32, 16);
 		printf("«Î ‰»Î£∫");
 		scanf_s("%d", &nTemp);

@@ -1,11 +1,11 @@
 #include "data.h"
 #include "log_in.h"
-//coordinate *nSnake_coord=nullptr;
-coordinate nSnake_coord[3000];
-coordinate nSnakeother_coord[3000];
-coordinate food;
-coordinate food_accelerate;
-coordinate food_decelerate;
+//COORDINATE *nSnake_coord=nullptr;
+COORDINATE nSnake_coord[3000];
+COORDINATE nSnakeother_coord[3000];
+COORDINATE g_Food;
+COORDINATE g_Food_Accelerate;
+COORDINATE g_Food_Decelerate;
 nAccount *g_Log = nullptr;
 GAMEINFO *g_gameLog = nullptr;
 int map_decide = 0;
@@ -14,10 +14,10 @@ int g_gamenum = 0;
 int x;
 int y;
 
-int Lenght;
-int score = 0;
-int level = 1;
-int speed = 300;//速度
+int g_Lenght;
+int g_Score = 0;
+int g_Level = 1;
+int g_Speed = 300;//速度
 
 bool e = true;
 char bufAcc[30] = { 0 };
